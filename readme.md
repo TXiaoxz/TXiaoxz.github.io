@@ -1,2 +1,1 @@
-  cd /Users/dlwl/site
-  npm run dev
+https://txiaoxz.github.io/
