@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photography - Xupeng Zhang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 16px;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      /* Navigation styles */
+      nav a {
+        font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 1.5;
+      }
+
+      .tracking-wider {
+        letter-spacing: 0.1em;
+      }
+
+      .tracking-wide {
+        letter-spacing: 0.05em;
+      }
+
+      .tracking-tight {
+        letter-spacing: -0.025em;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      /* Lightbox modal styles */
+      .lightbox {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.95);
+        align-items: center;
+        justify-content: center;
+      }
+
+      .lightbox.active {
+        display: flex;
+      }
+
+      .lightbox-content {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+        animation: zoomIn 0.3s ease;
+      }
+
+      @keyframes zoomIn {
+        from {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: 30px;
+        right: 40px;
+        color: white;
+        font-size: 40px;
+        font-weight: 100;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 10000;
+      }
+
+      .lightbox-close:hover {
+        transform: scale(1.2);
+      }
+
+      .lightbox-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: white;
+        font-size: 40px;
+        cursor: pointer;
+        padding: 20px;
+        user-select: none;
+        transition: all 0.3s ease;
+      }
+
+      .lightbox-nav:hover {
+        transform: translateY(-50%) scale(1.2);
+      }
+
+      .lightbox-prev {
+        left: 20px;
+      }
+
+      .lightbox-next {
+        right: 20px;
+      }
+    </style>
+  </head>
+  <body class="bg-[#F5F3ED]">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#F5F3ED] border-b border-black/10">
+      <div class="max-w-screen-2xl mx-auto px-8 py-6 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-1 group">
+          <span class="tracking-tight transition-transform duration-300 group-hover:scale-110">&lt;X</span>
+          <span class="text-purple-600 transition-transform duration-300 group-hover:rotate-180 inline-block">_</span>
+          <span class="tracking-tight transition-transform duration-300 group-hover:scale-110">Z&gt;</span>
+        </a>
+        <div class="flex items-center gap-12">
+          <a href="/#about" class="tracking-wider relative group">
+            ABOUT
+            <span class="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="/#skills" class="tracking-wider relative group">
+            SKILLS
+            <span class="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="/photos.html" class="tracking-wider relative group">
+            PHOTOS
+            <span class="absolute -bottom-1 left-0 w-full h-px bg-black"></span>
+          </a>
+          <a href="/#contact" class="tracking-wider relative group">
+            CONTACT
+            <span class="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Photos Section -->
+    <section class="pt-32 pb-24 px-8 min-h-screen">
+      <div class="max-w-screen-2xl mx-auto">
+        <h2 class="tracking-wider mb-16 text-center text-2xl">PHOTOGRAPHY</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Photo 1 -->
+          <div class="group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
+            <div class="aspect-[4/3] overflow-hidden bg-black/5">
+              <img
+                src="/photos/thumbnails/IMG_1393.jpg"
+                data-full="/photos/IMG_1393.jpg"
+                alt="Sunset sky"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Photo 2 -->
+          <div class="group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
+            <div class="aspect-[4/3] overflow-hidden bg-black/5">
+              <img
+                src="/photos/thumbnails/IMG_5888.jpg"
+                data-full="/photos/IMG_5888.jpg"
+                alt="Dusk scene"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Photo 3 -->
+          <div class="group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
+            <div class="aspect-[4/3] overflow-hidden bg-black/5">
+              <img
+                src="/photos/thumbnails/IMG_2715_jpg.jpg"
+                data-full="/photos/IMG_2715_jpg.jpg"
+                alt="Coastal view"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Photo 4 -->
+          <div class="group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
+            <div class="aspect-[4/3] overflow-hidden bg-black/5">
+              <img
+                src="/photos/thumbnails/IMG_0086.jpg"
+                data-full="/photos/IMG_0086.jpg"
+                alt="Portrait"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Photo 5 -->
+          <div class="group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
+            <div class="aspect-[4/3] overflow-hidden bg-black/5">
+              <img
+                src="/photos/thumbnails/IMG_0127.jpg"
+                data-full="/photos/IMG_0127.jpg"
+                alt="Scene"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Photo 6 -->
+          <div class="group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
+            <div class="aspect-[4/3] overflow-hidden bg-black/5">
+              <img
+                src="/photos/thumbnails/IMG_0215.jpg"
+                data-full="/photos/IMG_0215.jpg"
+                alt="Scene"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Photo 7 -->
+          <div class="group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
+            <div class="aspect-[4/3] overflow-hidden bg-black/5">
+              <img
+                src="/photos/thumbnails/IMG_0216.jpg"
+                data-full="/photos/IMG_0216.jpg"
+                alt="Scene"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Photo 8 -->
+          <div class="group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
+            <div class="aspect-[4/3] overflow-hidden bg-black/5">
+              <img
+                src="/photos/thumbnails/IMG_0304.jpg"
+                data-full="/photos/IMG_0304.jpg"
+                alt="Scene"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Photo 9 -->
+          <div class="group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
+            <div class="aspect-[4/3] overflow-hidden bg-black/5">
+              <img
+                src="/photos/thumbnails/IMG_0326.jpg"
+                data-full="/photos/IMG_0326.jpg"
+                alt="Scene"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Photo 10 -->
+          <div class="group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
+            <div class="aspect-[4/3] overflow-hidden bg-black/5">
+              <img
+                src="/photos/thumbnails/IMG_0346.jpg"
+                data-full="/photos/IMG_0346.jpg"
+                alt="Scene"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Photo 11 -->
+          <div class="group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
+            <div class="aspect-[4/3] overflow-hidden bg-black/5">
+              <img
+                src="/photos/thumbnails/IMG_0428.jpg"
+                data-full="/photos/IMG_0428.jpg"
+                alt="Scene"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Photo 12 -->
+          <div class="group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
+            <div class="aspect-[4/3] overflow-hidden bg-black/5">
+              <img
+                src="/photos/thumbnails/IMG_1194.jpg"
+                data-full="/photos/IMG_1194.jpg"
+                alt="Scene"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Photo 13 -->
+          <div class="group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
+            <div class="aspect-[4/3] overflow-hidden bg-black/5">
+              <img
+                src="/photos/thumbnails/IMG_1201.jpg"
+                data-full="/photos/IMG_1201.jpg"
+                alt="Scene"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Photo 14 -->
+          <div class="group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
+            <div class="aspect-[4/3] overflow-hidden bg-black/5">
+              <img
+                src="/photos/thumbnails/IMG_2685_jpg.jpg"
+                data-full="/photos/IMG_2685_jpg.jpg"
+                alt="Portrait"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-black/10 py-8 px-8">
+      <div class="max-w-screen-2xl mx-auto text-center text-black/50">
+        <p>© 2025 Xupeng Zhang. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+      <span class="lightbox-close">&times;</span>
+      <span class="lightbox-nav lightbox-prev">&#10094;</span>
+      <img id="lightbox-img" class="lightbox-content" src="" alt="">
+      <span class="lightbox-nav lightbox-next">&#10095;</span>
+    </div>
+
+    <script>
+      // Get all photo images
+      const photos = document.querySelectorAll('.group img');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const closeBtn = document.querySelector('.lightbox-close');
+      const prevBtn = document.querySelector('.lightbox-prev');
+      const nextBtn = document.querySelector('.lightbox-next');
+
+      let currentIndex = 0;
+      const photoArray = Array.from(photos);
+
+      // Open lightbox when clicking on a photo
+      photos.forEach((photo, index) => {
+        photo.parentElement.parentElement.addEventListener('click', (e) => {
+          e.preventDefault();
+          currentIndex = index;
+          // Use full resolution image for lightbox
+          const fullSrc = photo.getAttribute('data-full') || photo.src;
+          openLightbox(fullSrc, photo.alt);
+        });
+      });
+
+      function openLightbox(src, alt) {
+        lightbox.classList.add('active');
+        lightboxImg.src = src;
+        lightboxImg.alt = alt;
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+
+      // Close lightbox when clicking the X button
+      closeBtn.addEventListener('click', closeLightbox);
+
+      // Close lightbox when clicking outside the image
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      // Navigate to previous photo
+      prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex - 1 + photoArray.length) % photoArray.length;
+        const fullSrc = photoArray[currentIndex].getAttribute('data-full') || photoArray[currentIndex].src;
+        lightboxImg.src = fullSrc;
+        lightboxImg.alt = photoArray[currentIndex].alt;
+      });
+
+      // Navigate to next photo
+      nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex + 1) % photoArray.length;
+        const fullSrc = photoArray[currentIndex].getAttribute('data-full') || photoArray[currentIndex].src;
+        lightboxImg.src = fullSrc;
+        lightboxImg.alt = photoArray[currentIndex].alt;
+      });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+
+        if (e.key === 'Escape') {
+          closeLightbox();
+        } else if (e.key === 'ArrowLeft') {
+          prevBtn.click();
+        } else if (e.key === 'ArrowRight') {
+          nextBtn.click();
+        }
+      });
+    </script>
+  </body>
+</html>
