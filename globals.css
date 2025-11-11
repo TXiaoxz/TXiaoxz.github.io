@@ -4,6 +4,16 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Navigation consistency across all pages */
+nav .max-w-screen-2xl {
+  min-height: 72px;
+}
+
+nav a {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
 :root {
   --font-size: 16px;
   --background: #ffffff;

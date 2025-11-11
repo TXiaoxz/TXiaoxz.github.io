@@ -28,16 +28,16 @@ export default function App() {
             <span className="tracking-tight transition-transform duration-300 group-hover:scale-110">Z{'>'}</span>
           </a>
           <div className="flex items-center gap-12">
-            {/* <a href="#work" className="tracking-wider relative group">
-              WORK
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
-            </a> */}
             <a href="#about" className="tracking-wider relative group">
               ABOUT
               <span className="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a href="#skills" className="tracking-wider relative group">
               SKILLS
+              <span className="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="/projects/index.html" className="tracking-wider relative group">
+              PROJECTS
               <span className="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a href="/photos.html" className="tracking-wider relative group">

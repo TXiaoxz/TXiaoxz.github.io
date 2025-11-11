@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow Mapping - Xupeng Zhang</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Navigation (matching main site) -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-site border-b border-black/10">
+        <div class="max-w-screen-2xl mx-auto px-8 py-6 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-1 group">
+                <span class="tracking-tight transition-transform duration-300 group-hover:scale-110">&lt;X</span>
+                <span class="text-accent transition-transform duration-300 group-hover:rotate-180 inline-block">_</span>
+                <span class="tracking-tight transition-transform duration-300 group-hover:scale-110">Z&gt;</span>
+            </a>
+            <div class="flex items-center gap-12">
+                <a href="/#about" class="tracking-wider relative group">
+                    ABOUT
+                    <span class="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="/#skills" class="tracking-wider relative group">
+                    SKILLS
+                    <span class="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="/projects/index.html" class="tracking-wider relative group">
+                    PROJECTS
+                    <span class="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="/photos.html" class="tracking-wider relative group">
+                    PHOTOS
+                    <span class="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="/#contact" class="tracking-wider relative group">
+                    CONTACT
+                    <span class="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div id="app">
+        <!-- Project Header -->
+        <div id="header-container">
+            <h1>Shadow Mapping</h1>
+            <h2>Real-time WebGL 2.0 Rendering Engine</h2>
+        </div>
+
+        <!-- Simplified Controls -->
+        <div class="settings-container">
+            <div class="setting">
+                <h3>Control Mode</h3>
+                <div class="setting-item-container">
+                    <div id="controlCamera" class="setting-item inactive">Camera</div>
+                    <div id="controlSceneNode" class="setting-item inactive">[Hold Q] Scene Node</div>
+                </div>
+            </div>
+            <div class="setting">
+                <h3>Select Scene Node</h3>
+                <div class="setting-item-container">
+                    <select id="selectSceneNodeSelect" disabled></select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Canvas -->
+        <div id="canvas-container">
+            <canvas id="canvas"></canvas>
+        </div>
+
+        <!-- Instructions -->
+        <div class="instructions">
+            <p><strong>Controls:</strong> Left Click + Drag to rotate camera | Right Click + Drag to zoom | Hold [Q] to manipulate selected object</p>
+        </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

@@ -27,22 +27,32 @@
       }
 
       /* Navigation styles */
+      nav .max-w-screen-2xl {
+        min-height: 72px;
+      }
+
       nav a {
         font-size: 0.875rem;
         font-weight: 400;
-        line-height: 1.5;
+        line-height: 1.25rem;
       }
 
       .tracking-wider {
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
       }
 
       .tracking-wide {
-        letter-spacing: 0.05em;
+        letter-spacing: 0.025em;
       }
 
       .tracking-tight {
         letter-spacing: -0.025em;
+      }
+
+      /* Logo text size */
+      nav .group span {
+        font-size: 1rem;
+        line-height: 1.5rem;
       }
 
       img {
@@ -143,6 +153,10 @@
           </a>
           <a href="/#skills" class="tracking-wider relative group">
             SKILLS
+            <span class="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="/projects/index.html" class="tracking-wider relative group">
+            PROJECTS
             <span class="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
           </a>
           <a href="/photos.html" class="tracking-wider relative group">
