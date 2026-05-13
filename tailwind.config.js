@@ -8,6 +8,17 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: [
+          'Stack Sans Notch',
+          'ui-sans-serif',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'sans-serif',
+        ],
+      },
       colors: {
         border: 'var(--color-border)',
         input: 'var(--color-input)',

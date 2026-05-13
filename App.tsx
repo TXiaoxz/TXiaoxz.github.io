@@ -1,372 +1,307 @@
 import { ImageWithFallback } from './components/figma/ImageWithFallback';
 import { TerminalTypewriter } from './components/TerminalTypewriter';
+import { Reveal, RevealGroup, RevealItem } from './components/Reveal';
+import { Navbar } from './components/Navbar';
+
+const focusAreas = [
+  {
+    number: '01',
+    title: 'Medical Imaging',
+    summary:
+      'Multimodal MRI-MRA registration, neurovascular segmentation, and ROI-focused evaluation.',
+  },
+  {
+    number: '02',
+    title: 'Computer Vision',
+    summary:
+      'Vision models for medical and general-purpose tasks — segmentation, detection, and representation learning.',
+  },
+  {
+    number: '03',
+    title: 'Large Language Models',
+    summary:
+      'Exploring LLMs for reasoning, retrieval, and domain-specific assistants. Early-stage interest, projects in progress.',
+  },
+];
+
+const featuredWork = [
+  {
+    title: 'Multimodal MRI-MRA Registration',
+    summary:
+      'Robust alignment for trigeminal neuralgia imaging, with emphasis on vessel-aware failure analysis and clinically meaningful regions of interest.',
+    label: 'Research',
+    href: '/research/index.html#mri-mra',
+    size: 'large',
+  },
+  {
+    title: 'Neurovascular Segmentation Pipeline',
+    summary:
+      'A 3D medical imaging workflow for preprocessing, mask conversion, vessel localization, and expert-annotated region analysis.',
+    label: 'Research Tooling',
+    href: '/research/index.html#neurovascular',
+    size: 'large',
+  },
+  {
+    title: 'Shadow Mapping Engine',
+    summary:
+      'Real-time WebGL 2.0 rendering engine with camera controls, scene node manipulation, and shadow mapping.',
+    label: 'Graphics / Systems',
+    href: '/projects/shadow-mapping/index.html',
+    size: 'small',
+  },
+];
+
+const methodNotes = [
+  {
+    title: 'Reproducible preprocessing',
+    summary:
+      'Clear data conversion, standardized image spaces, and scripts that can be rerun.',
+  },
+  {
+    title: 'Targeted evaluation',
+    summary:
+      'Metrics designed around actual failure cases, not only aggregate benchmark scores.',
+  },
+  {
+    title: 'Research-engineering bridge',
+    summary:
+      'Code, experiments, visualization, and documentation built together from the start.',
+  },
+];
 
 export default function App() {
-  const education = [
-    {
-      school: 'Johns Hopkins University',
-      location: 'Baltimore, MD',
-      degree: 'Master of Science in Engineering, Electrical and Computer Engineering',
-      period: 'Aug 2025 - May 2027 (Expected)',
-    },
-    {
-      school: 'University of California, Davis',
-      location: 'Davis, CA',
-      degree: 'Bachelor of Science, Computer Science',
-      period: 'Sep 2021 - Mar 2025',
-    },
-  ];
-
-  const skillGroups = [
-    {
-      title: 'Technical',
-      items: [
-        'Python (pandas, NumPy, scikit-learn, PyTorch, TensorFlow)',
-        'Java',
-        'C++',
-        'C',
-        'SQL (basic)',
-        'JavaScript',
-        'HTML',
-        'JSON',
-      ],
-    },
-    {
-      title: 'Developer Tools',
-      items: [
-        'Linux/Bash',
-        'Git',
-        'Jupyter',
-        'Conda',
-        'Data preprocessing pipelines',
-        'Experimental evaluation',
-        'Debugging',
-      ],
-    },
-    {
-      title: 'AI / ML',
-      items: [
-        'Machine learning',
-        'Deep learning',
-        'Computer vision',
-        'Model training and evaluation',
-        'Segmentation',
-        'Multimodal registration',
-        'Medical image analysis',
-      ],
-    },
-    {
-      title: 'Relevant Coursework',
-      items: ['Machine Learning', 'Deep Learning', 'Computer Vision'],
-    },
-    {
-      title: 'Current Coursework',
-      items: [
-        'Machine Learning for Signal Processing (EN.520.612)',
-        'Audio Signal Processing (EN.520.645)',
-        'Random Signal Analysis (EN.520.651)',
-      ],
-    },
-    {
-      title: 'Languages',
-      items: ['English', 'Mandarin'],
-    },
-  ];
-
-  const researchProjects = [
-    {
-      title: 'Multimodal MRI-MRA Registration for Trigeminal Neuralgia',
-      organization: 'Johns Hopkins University',
-      bullets: [
-        'Developed a multimodal neuroimaging pipeline for MRI-MRA registration to support vessel localization in trigeminal neuralgia studies.',
-        'Designed ROI-focused evaluation using overlap, intensity-similarity, and distance-based metrics to assess alignment quality beyond whole-brain registration scores.',
-        'Investigated failure cases where global registration appeared acceptable but vessel-level alignment remained poor, and explored strategies using manual labels, pseudo-labels, and vessel-aware priors.',
-      ],
-    },
-    {
-      title: '3D Neurovascular Segmentation and Preprocessing Pipeline',
-      organization: 'Johns Hopkins University',
-      bullets: [
-        'Built preprocessing workflows for 3D medical images, including masking, label conversion, cropping, image-space standardization, and quality control across heterogeneous scans.',
-        'Integrated vessel segmentation outputs into downstream analysis to identify vascular structures corresponding to expert-annotated regions.',
-        'Automated evaluation and data-processing scripts to improve reproducibility and efficiency in neuroimaging experiments.',
-      ],
-    },
-    {
-      title: 'Fine-Tuning LLMs on a Traditional Chinese Medicine Dataset',
-      organization: 'Research Project',
-      bullets: [
-        'Led a team of five in a research-style project exploring large language model fine-tuning for specialized medical language applications.',
-        'Curated and adapted a domain-specific Traditional Chinese Medicine dataset for supervised model training and evaluation.',
-        'Fine-tuned multiple open-source LLMs, including LLaMA, Mistral, and Phi, and evaluated performance using perplexity, BLEU, and task-based comparison metrics.',
-        'Authored a research manuscript comparing model performance and domain adaptation strategies.',
-      ],
-    },
-    {
-      title: 'Medical Imaging Data Preprocessing (TCGA and fastMRI)',
-      organization: 'Research Project',
-      bullets: [
-        'Preprocessed clinical and genomic data from TCGA COADREAD Pan-Cancer Atlas using Python for downstream statistical and machine learning analysis.',
-        'Cleaned metadata, standardized survival variables, and built exploratory analysis workflows including Kaplan-Meier analysis and Cox regression preparation.',
-        'Processed fastMRI data for organization, format handling, and downstream model-ready usage.',
-      ],
-    },
-    {
-      title: 'Human Action Prediction from Skeletons',
-      organization: 'Research Project',
-      bullets: [
-        'Built a temporal prediction pipeline to forecast future skeleton motion from prior sequential frames in video data.',
-        'Designed preprocessing workflows to extract, align, and structure pose keypoints for downstream modeling.',
-        'Developed a framework to predict 5 future frames of skeleton movement from the previous 30 frames using sequence-based modeling ideas.',
-      ],
-    },
-  ];
-
   return (
-    <div className="min-h-screen bg-[#F5F3ED]">
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#F5F3ED] border-b border-black/10">
-        <div className="max-w-screen-2xl mx-auto px-8 py-6 flex items-center justify-between gap-8">
-          <a href="#" className="flex items-center gap-1 group shrink-0">
-            <span className="tracking-tight transition-transform duration-300 group-hover:scale-110">{'<'}X</span>
-            <span className="text-purple-600 transition-transform duration-300 group-hover:rotate-180 inline-block">_</span>
-            <span className="tracking-tight transition-transform duration-300 group-hover:scale-110">Z{'>'}</span>
-          </a>
-          <div className="flex items-center gap-6 md:gap-10 text-xs md:text-sm">
-            <a href="#about" className="tracking-wider relative group">
-              ABOUT
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a href="#resume" className="tracking-wider relative group">
-              RESUME
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a href="#skills" className="tracking-wider relative group">
-              SKILLS
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a href="/projects/index.html" className="tracking-wider relative group">
-              PROJECTS
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a href="/photos.html" className="tracking-wider relative group">
-              PHOTOS
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a href="#contact" className="tracking-wider relative group">
-              CONTACT
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
-            </a>
-          </div>
-        </div>
-      </nav>
+    <div className="min-h-screen bg-[#F5F3ED] text-black">
+      <Navbar />
 
-      <section className="pt-24 pb-24 px-8">
-        <div className="max-w-screen-2xl mx-auto">
-          <div className="mb-16 ml-8 flex justify-start">
-            <div className="text-sm" style={{ fontFamily: "'Ubuntu Mono', monospace" }}>
-              <TerminalTypewriter
-                prompt="Dlwlx05:~/home$"
-                actions={[
-                  { type: 'pause' as const, duration: 800 },
-                  { type: 'type' as const, text: 'cd UCD_Undergraduate' },
-                  { type: 'pause' as const, duration: 1200 },
-                  { type: 'delete' as const, count: 20 },
-                  { type: 'pause' as const, duration: 500 },
-                  { type: 'type' as const, text: 'cd JHU_Master' },
-                  { type: 'pause' as const, duration: 1200 },
-                  { type: 'delete' as const, count: 13 },
-                  { type: 'pause' as const, duration: 500 },
-                  { type: 'type' as const, text: 'sjhafhkofhashdfkjh', speed: 40 },
-                  { type: 'pause' as const, duration: 400 },
-                  { type: 'type' as const, text: 'asdfghjkl', speed: 35 },
-                  { type: 'pause' as const, duration: 300 },
-                  { type: 'type' as const, text: '???', speed: 30 },
-                  { type: 'pause' as const, duration: 1000 },
-                  { type: 'delete' as const, count: 31 },
-                  { type: 'pause' as const, duration: 800 },
-                ]}
-                typeSpeed={80}
-                deleteSpeed={50}
-                loop={true}
-                loopDelay={2000}
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-5 lg:col-start-8 order-1 lg:order-3">
-              <div className="w-full max-w-[600px] mx-auto lg:ml-auto lg:mr-0">
-                <ImageWithFallback
-                  src="/photos/IMG_0086.jpg"
-                  alt="Portrait"
-                  className="w-full h-auto object-cover"
+      <main>
+        <section className="pt-28 md:pt-32 pb-14 md:pb-16 px-6 md:px-8">
+          <div className="max-w-screen-2xl mx-auto">
+            <div className="mb-8 md:mb-10">
+              <div className="text-sm" style={{ fontFamily: "'Ubuntu Mono', monospace" }}>
+                <TerminalTypewriter
+                  prompt="Dlwlx05:~/home$"
+                  actions={[
+                    { type: 'pause' as const, duration: 700 },
+                    { type: 'type' as const, text: 'cd research/medical-imaging' },
+                    { type: 'pause' as const, duration: 1000 },
+                    { type: 'delete' as const, count: 27 },
+                    { type: 'pause' as const, duration: 450 },
+                    { type: 'type' as const, text: 'run registration --modality mri-mra', speed: 42 },
+                    { type: 'pause' as const, duration: 1100 },
+                    { type: 'delete' as const, count: 35 },
+                    { type: 'pause' as const, duration: 450 },
+                    { type: 'type' as const, text: 'eval vessel-alignment --roi trigeminal', speed: 38 },
+                    { type: 'pause' as const, duration: 1200 },
+                    { type: 'delete' as const, count: 38 },
+                    { type: 'pause' as const, duration: 450 },
+                    { type: 'type' as const, text: 'notes: reproducible pipelines + robust metrics', speed: 36 },
+                    { type: 'pause' as const, duration: 1200 },
+                    { type: 'delete' as const, count: 46 },
+                    { type: 'pause' as const, duration: 700 },
+                  ]}
+                  typeSpeed={72}
+                  deleteSpeed={45}
+                  loop={true}
+                  loopDelay={1700}
                 />
               </div>
             </div>
 
-            <div className="lg:col-span-3 flex items-center justify-center order-2">
-              <div className="text-center space-y-3">
-                <p className="text-xs tracking-[0.2em] text-black/50">ECE @ JOHNS HOPKINS UNIVERSITY</p>
-                <h1 className="tracking-wider text-center">XUPENG (ZACK) ZHANG</h1>
-                <p className="text-sm text-black/70">Machine Learning | Signal Processing | Computer Vision</p>
-              </div>
-            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+              <div className="lg:col-span-6 xl:col-span-5 space-y-6 order-2 lg:order-1">
+                <div className="space-y-4">
+                  <Reveal delay={0.05}>
+                    <p className="text-xs uppercase tracking-[0.2em] text-black/45">
+                      Johns Hopkins University · Electrical and Computer Engineering
+                    </p>
+                  </Reveal>
+                  <Reveal delay={0.15}>
+                    <h1 className="text-3xl md:text-5xl leading-tight">Xupeng (Zack) Zhang</h1>
+                  </Reveal>
+                  <Reveal delay={0.25}>
+                    <p className="text-sm md:text-base text-black/72 leading-relaxed max-w-2xl">
+                      M.S.E. student in Electrical and Computer Engineering at Johns Hopkins University.
+                      I build machine learning systems for medical imaging, with growing interests in
+                      computer vision and large language models. Current work centers on MRI-MRA registration
+                      and neurovascular analysis.
+                    </p>
+                  </Reveal>
+                  <Reveal delay={0.35}>
+                    <p className="text-sm md:text-base text-black/65">
+                      Medical Imaging · Computer Vision · LLM
+                    </p>
+                  </Reveal>
+                </div>
 
-            <div className="lg:col-span-3 lg:col-start-1 order-3 lg:order-1">
-              <div className="w-full max-w-[280px] mx-auto">
-                <ImageWithFallback
-                  src="/photos/IMG_2685_jpg.jpg"
-                  alt="Portrait"
-                  className="w-full h-[420px] object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="about" className="py-24 px-8">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="tracking-wider mb-8">ABOUT</h2>
-          <div className="space-y-6 text-black/70">
-            <p>
-              Graduate student in Electrical and Computer Engineering at Johns Hopkins University,
-              with a Computer Science background from UC Davis. My focus is building robust ML systems
-              for real-world signal and imaging problems.
-            </p>
-            <p>
-              Current work includes multimodal MRI-MRA registration, neurovascular segmentation pipelines,
-              and NIAM-based speech enhancement. I am actively exploring audio signal processing and random
-              signal analysis in coursework and research.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="resume" className="py-24 px-8 bg-white/40 border-y border-black/10">
-        <div className="max-w-screen-2xl mx-auto space-y-14">
-          <div className="text-center">
-            <h2 className="tracking-wider">RESUME HIGHLIGHTS</h2>
-            <p className="mt-4 text-black/60 max-w-3xl mx-auto">
-              Education, publication, and selected research projects.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div className="lg:col-span-1 p-6 border border-black/10 bg-[#F5F3ED]">
-              <p className="text-xs tracking-[0.2em] text-black/50 mb-3">CONTACT</p>
-              <div className="space-y-3 text-sm">
-                <p>
-                  <span className="text-black/50">Phone</span>
-                  <br />
-                  <span>+1 (530) 407-8216</span>
-                </p>
-                <p>
-                  <span className="text-black/50">Email</span>
-                  <br />
-                  <a href="mailto:xzhan419@jh.edu" className="relative group inline-block">
-                    xzhan419@jh.edu
-                    <span className="absolute -bottom-0.5 left-0 w-full h-px bg-black transition-all duration-300 group-hover:w-0"></span>
-                  </a>
-                </p>
-                <p>
-                  <span className="text-black/50">GitHub</span>
-                  <br />
-                  <a href="https://github.com/TXiaoxz" target="_blank" rel="noopener noreferrer" className="relative group inline-block">
-                    github.com/TXiaoxz
-                    <span className="absolute -bottom-0.5 left-0 w-full h-px bg-black transition-all duration-300 group-hover:w-0"></span>
-                  </a>
-                </p>
-              </div>
-            </div>
-
-            <div className="lg:col-span-2 space-y-4">
-              {education.map((item) => (
-                <article key={item.school} className="p-6 border border-black/10 bg-[#F5F3ED] transition-transform duration-300 hover:-translate-y-1">
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                    <div>
-                      <h3 className="tracking-wide">{item.school}</h3>
-                      <p className="text-black/60 mt-1">{item.location}</p>
+                <Reveal delay={0.45}>
+                  <div className="flex flex-wrap items-center gap-3 pt-1">
+                    <a href="/research/index.html" className="px-4 py-2.5 bg-black text-[#F5F3ED] text-sm tracking-wide hover:-translate-y-0.5 transition-transform">
+                      View Research
+                    </a>
+                    <a href="/projects/index.html" className="px-4 py-2.5 border border-black/20 bg-[#F5F3ED] text-sm tracking-wide hover:-translate-y-0.5 transition-transform">
+                      View Projects
+                    </a>
+                    <div className="flex items-center gap-3 text-sm text-black/55">
+                      <a href="/cv/index.html" className="hover:text-black transition-colors">CV</a>
+                      <span aria-hidden="true">·</span>
+                      <a href="/contact/index.html" className="hover:text-black transition-colors">Contact</a>
                     </div>
-                    <p className="text-sm text-black/60">{item.period}</p>
                   </div>
-                  <p className="mt-4">{item.degree}</p>
-                </article>
-              ))}
+                </Reveal>
+              </div>
+
+              <div className="lg:col-span-6 xl:col-span-5 xl:col-start-8 order-1 lg:order-2">
+                <Reveal delay={0.2} y={24} duration={0.8}>
+                  <div className="relative w-full max-w-[560px] ml-auto">
+                    <ImageWithFallback
+                      src="/photos/IMG_0086.jpg"
+                      alt="Xupeng Zhang portrait"
+                      className="w-full h-[400px] md:h-[540px] object-cover border border-black/10"
+                    />
+                    <div className="absolute -bottom-4 -left-4 hidden md:block bg-[#F5F3ED] border border-black/10 px-4 py-3 max-w-[230px]">
+                      <p className="text-[11px] uppercase tracking-[0.15em] text-black/45">Current direction</p>
+                      <p className="text-sm mt-1">MRI-MRA registration · vessel-aware evaluation</p>
+                    </div>
+                  </div>
+                </Reveal>
+              </div>
             </div>
           </div>
+        </section>
 
-          <article className="p-6 border border-black/10 bg-[#F5F3ED]">
-            <p className="text-xs tracking-[0.2em] text-black/50 mb-4">PUBLICATION</p>
-            <h3 className="tracking-wide">Trajectory of Mobile Grasping Robot in Reinforcement Learning Application</h3>
-            <p className="text-black/70 mt-3">
-              X. Zhang, China Science and Technology, ISSN 1671-2064; CN11-4650/N, Jul 2024.
-            </p>
-          </article>
+        <section className="py-12 md:py-14 px-6 md:px-8 border-y border-black/10 bg-white/35">
+          <div className="max-w-screen-2xl mx-auto">
+            <Reveal>
+              <div className="mb-7">
+                <p className="text-xs uppercase tracking-[0.2em] text-black/45 mb-3">Current Focus</p>
+                <h2 className="text-2xl md:text-3xl">Research systems for imaging and signals</h2>
+              </div>
+            </Reveal>
 
-          <div className="space-y-6">
-            <p className="text-xs tracking-[0.2em] text-black/50 text-center">SELECTED RESEARCH PROJECTS</p>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {researchProjects.map((project) => (
-                <article key={project.title} className="p-6 border border-black/10 bg-[#F5F3ED] transition-transform duration-300 hover:-translate-y-1">
-                  <h3 className="tracking-wide">{project.title}</h3>
-                  <p className="text-sm text-black/60 mt-2">{project.organization}</p>
-                  <ul className="mt-4 space-y-3 text-black/80 list-disc pl-5">
-                    {project.bullets.map((bullet) => (
-                      <li key={bullet}>{bullet}</li>
-                    ))}
+            <RevealGroup className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+              {focusAreas.map((area) => (
+                <RevealItem key={area.title}>
+                  <article className="border border-black/10 bg-[#F5F3ED] p-5 hover:-translate-y-1 transition-transform duration-300 h-full">
+                    <p className="text-xs uppercase tracking-[0.16em] text-purple-700/75">{area.number}</p>
+                    <h3 className="mt-3 text-lg">{area.title}</h3>
+                    <p className="mt-3 text-black/70 leading-relaxed">{area.summary}</p>
+                  </article>
+                </RevealItem>
+              ))}
+            </RevealGroup>
+          </div>
+        </section>
+
+        <section className="py-16 md:py-20 px-6 md:px-8">
+          <div className="max-w-screen-2xl mx-auto">
+            <Reveal>
+              <div className="mb-8 md:mb-10">
+                <p className="text-xs uppercase tracking-[0.2em] text-black/45 mb-3">Selected Work</p>
+                <h2 className="text-2xl md:text-3xl">Featured Work</h2>
+              </div>
+            </Reveal>
+
+            <RevealGroup className="grid grid-cols-1 lg:grid-cols-12 gap-5 md:gap-6" stagger={0.1}>
+              {featuredWork.map((item) => (
+                <RevealItem
+                  key={item.title}
+                  className={
+                    item.size === 'large' ? 'lg:col-span-6' : 'lg:col-span-6 xl:col-span-3'
+                  }
+                >
+                  <article
+                    className={`h-full border border-black/12 bg-white/70 hover:-translate-y-1 hover:shadow-sm transition-all duration-300 ${
+                      item.size === 'large' ? 'p-6 md:p-7' : 'p-6'
+                    }`}
+                  >
+                    <p className="text-xs uppercase tracking-[0.14em] text-purple-700/75">{item.label}</p>
+                    <h3 className={`${item.size === 'large' ? 'text-xl md:text-2xl' : 'text-lg'} mt-4 leading-snug`}>
+                      {item.title}
+                    </h3>
+                    <p className="mt-4 text-black/70 leading-relaxed">{item.summary}</p>
+                    <a href={item.href} className="inline-flex mt-6 text-sm tracking-wide text-black/80 hover:text-black">
+                      Explore →
+                    </a>
+                  </article>
+                </RevealItem>
+              ))}
+            </RevealGroup>
+          </div>
+        </section>
+
+        <section className="py-16 md:py-20 px-6 md:px-8 bg-white/30 border-y border-black/10">
+          <div className="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+            <Reveal className="lg:col-span-4">
+              <p className="text-xs uppercase tracking-[0.2em] text-black/45 mb-3">How I Work</p>
+              <h2 className="text-2xl md:text-3xl leading-tight">Accurate, inspectable, reproducible.</h2>
+              <p className="mt-4 text-black/70 leading-relaxed">
+                I care about research systems that are not only accurate, but also easy to inspect,
+                rerun, evaluate, and explain.
+              </p>
+            </Reveal>
+
+            <RevealGroup className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+              {methodNotes.map((note) => (
+                <RevealItem key={note.title}>
+                  <article className="border border-black/10 bg-[#F5F3ED] p-5 h-full">
+                    <h3 className="text-base">{note.title}</h3>
+                    <p className="mt-3 text-black/70 leading-relaxed">{note.summary}</p>
+                  </article>
+                </RevealItem>
+              ))}
+            </RevealGroup>
+          </div>
+        </section>
+
+        <section className="py-16 md:py-20 px-6 md:px-8">
+          <RevealGroup className="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6" stagger={0.12}>
+            <RevealItem className="lg:col-span-8">
+              <article className="h-full border border-black/10 bg-white/55 p-6 md:p-7">
+                <p className="text-xs uppercase tracking-[0.2em] text-black/45 mb-4">Selected Writing</p>
+                <h2 className="text-xl md:text-2xl leading-snug">
+                  Trajectory of Mobile Grasping Robot in Reinforcement Learning Application
+                </h2>
+                <p className="mt-3 text-black/70">
+                  Published work on robot trajectory and reinforcement learning. China Science and Technology,
+                  ISSN 1671-2064; CN11-4650/N, Jul 2024.
+                </p>
+                <div className="mt-6 pt-6 border-t border-black/10">
+                  <p className="text-sm uppercase tracking-[0.14em] text-black/50">In preparation</p>
+                  <ul className="mt-3 text-black/72 list-disc pl-5 space-y-2">
+                    <li>Multimodal MRI-MRA registration for trigeminal neuralgia imaging.</li>
                   </ul>
-                </article>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="skills" className="py-24 px-8">
-        <div className="max-w-screen-2xl mx-auto">
-          <h2 className="tracking-wider mb-16 text-center">SKILLS</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-            {skillGroups.map((group) => (
-              <article key={group.title} className="p-6 border border-black/10 bg-white/50">
-                <h3 className="text-sm tracking-[0.18em] text-black/50 mb-4">{group.title}</h3>
-                <div className="flex flex-wrap gap-2">
-                  {group.items.map((item) => (
-                    <span key={item} className="px-3 py-1.5 border border-black/15 bg-[#F5F3ED] text-sm tracking-wide">
-                      {item}
-                    </span>
-                  ))}
                 </div>
               </article>
-            ))}
-          </div>
-        </div>
-      </section>
+            </RevealItem>
 
-      <section id="contact" className="py-24 px-8 bg-white/30">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="tracking-wider mb-8">GET IN TOUCH</h2>
-          <div className="space-y-4">
-            <p className="tracking-wide text-black/70">+1 (530) 407-8216</p>
-            <p className="tracking-wide">
-              <a href="mailto:xzhan419@jh.edu" className="relative group inline-block">
-                xzhan419@jh.edu
-                <span className="absolute -bottom-0.5 left-0 w-full h-px bg-black transition-all duration-300 group-hover:w-0"></span>
-              </a>
-            </p>
-            <div className="flex items-center justify-center gap-8 mt-8">
-              <a href="https://github.com/TXiaoxz" target="_blank" rel="noopener noreferrer" className="tracking-wide relative group">
-                GITHUB
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full"></span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+            <RevealItem className="lg:col-span-4">
+              <article className="h-full border border-black/10 bg-[#F5F3ED] p-6 md:p-7">
+                <p className="text-xs uppercase tracking-[0.2em] text-black/45 mb-4">Outside the Lab</p>
+                <h2 className="text-xl md:text-2xl leading-snug">Photography archive</h2>
+                <p className="mt-3 text-black/70 leading-relaxed">
+                  A small collection of light, places, and scenes that felt worth saving.
+                </p>
+                <a href="/photos.html" className="inline-flex mt-6 text-sm tracking-wide text-black/80 hover:text-black">
+                  View Photos →
+                </a>
+              </article>
+            </RevealItem>
+          </RevealGroup>
+        </section>
+      </main>
 
-      <footer className="border-t border-black/10 py-8 px-8">
-        <div className="max-w-screen-2xl mx-auto text-center text-black/50">
-          <p>© 2026 Xupeng Zhang. All rights reserved.</p>
+      <footer className="border-t border-black/10 py-8 px-6 md:px-8">
+        <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-5 items-start text-sm">
+          <div className="md:col-span-7">
+            <p className="text-black/45">© 2026 Xupeng Zhang. All rights reserved.</p>
+          </div>
+          <div className="md:col-span-5 flex flex-wrap md:justify-end gap-3 text-black/65">
+            <a href="mailto:xzhan419@jh.edu" className="hover:text-black transition-colors">Email</a>
+            <a href="https://github.com/TXiaoxz" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">GitHub</a>
+            <a href="/cv/index.html" className="hover:text-black transition-colors">CV</a>
+            <a href="/contact/index.html" className="hover:text-black transition-colors">Contact</a>
+          </div>
         </div>
       </footer>
     </div>

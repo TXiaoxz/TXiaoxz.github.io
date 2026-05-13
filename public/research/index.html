@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research - Xupeng Zhang</title>
+    <link rel="stylesheet" href="/academic-pages.css?v=2" />
+    <link rel="stylesheet" href="/partials/nav.css" />
+  </head>
+  <body>
+    <div id="nav-root"></div>
+    <script src="/partials/nav.js" defer></script>
+
+    <main class="container">
+      <header class="page-hero">
+        <p class="eyebrow">Research</p>
+        <h1>Research Focus</h1>
+        <p class="hero-copy">
+          My current work centers on medical imaging and machine learning, with growing interests in
+          computer vision and large language models. Emphasis on multimodal registration, segmentation
+          quality, and reproducible evaluation.
+        </p>
+      </header>
+
+      <section class="section">
+        <h2>Featured Directions</h2>
+        <p class="section-lead">Current and recent directions anchored in ongoing coursework and lab work.</p>
+        <div class="card-grid">
+          <article id="mri-mra" class="card">
+            <div class="meta-row">
+              <span class="chip">Medical Imaging</span>
+              <span class="status">Active @ JHU</span>
+            </div>
+            <h3>Multimodal MRI-MRA Registration for Trigeminal Neuralgia</h3>
+            <p>
+              Developing multimodal registration pipelines to support vessel localization in trigeminal neuralgia,
+              with explicit evaluation beyond whole-brain metrics.
+            </p>
+            <ul class="list">
+              <li>ROI-focused overlap, intensity-similarity, and distance-based metrics</li>
+              <li>Failure-case analysis for vessel-level misalignment</li>
+              <li>Exploration of manual labels, pseudo-labels, and vessel-aware priors</li>
+            </ul>
+          </article>
+
+          <article id="neurovascular" class="card">
+            <div class="meta-row">
+              <span class="chip">Segmentation</span>
+              <span class="status">Pipeline Work</span>
+            </div>
+            <h3>Neurovascular Segmentation and Vessel Localization Pipeline</h3>
+            <p>
+              Building preprocessing and quality-control pipelines for 3D neuroimaging data, then integrating vessel
+              segmentation outputs into downstream analysis.
+            </p>
+            <ul class="list">
+              <li>Masking, cropping, label conversion, and image-space standardization</li>
+              <li>Automated processing scripts for reproducible experiments</li>
+              <li>Alignment with expert-annotated vessel regions for analysis</li>
+            </ul>
+          </article>
+
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Methods and Evaluation Style</h2>
+        <div class="split">
+          <article class="card">
+            <h3>Experimental Priorities</h3>
+            <ul class="list">
+              <li>Reproducible preprocessing and experiment setup</li>
+              <li>Clear ablation or comparative model baselines</li>
+              <li>Targeted metrics aligned with downstream use</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Tooling and Workflow</h3>
+            <ul class="list">
+              <li>Python-centered pipelines with data and model versioning discipline</li>
+              <li>Automated evaluation scripts for consistent reporting</li>
+              <li>Iterative debugging from data quality to model behavior</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Writing</h2>
+        <article class="card">
+          <h3>Selected Publication</h3>
+          <p>
+            X. Zhang. "Trajectory of Mobile Grasping Robot in Reinforcement Learning Application." China Science and
+            Technology, ISSN 1671-2064; CN11-4650/N, Jul 2024.
+          </p>
+        </article>
+        <article class="card" style="margin-top: 12px">
+          <h3>Manuscripts in preparation</h3>
+          <ul class="list">
+            <li>Comparative manuscript on domain-adapted LLM fine-tuning for Traditional Chinese Medicine data.</li>
+            <li>Ongoing write-up on multimodal registration quality and vessel-aware evaluation.</li>
+          </ul>
+        </article>
+      </section>
+
+      <div class="footer">
+        <span>© 2026 Xupeng Zhang</span>
+        <a href="/contact/index.html">Contact for collaboration</a>
+      </div>
+    </main>
+  </body>
+</html>
