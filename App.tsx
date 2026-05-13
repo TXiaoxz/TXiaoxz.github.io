@@ -75,9 +75,9 @@ export default function App() {
       <Navbar />
 
       <main>
-        <section className="pt-28 md:pt-32 pb-14 md:pb-16 px-6 md:px-8">
+        <section className="pt-[88px] pb-14 md:pb-16 px-6 md:px-8">
           <div className="max-w-screen-2xl mx-auto">
-            <div className="mb-8 md:mb-10">
+            <div className="mb-3 md:mb-4">
               <div className="text-sm" style={{ fontFamily: "'Ubuntu Mono', monospace" }}>
                 <TerminalTypewriter
                   prompt="Dlwlx05:~/home$"
