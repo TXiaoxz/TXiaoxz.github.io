@@ -235,6 +235,218 @@ h1 {
   color: var(--text);
 }
 
+/* ---- Collapsible section ---- */
+
+.fold {
+  border: 1px solid var(--line);
+  background: var(--surface-soft);
+}
+
+.fold > summary {
+  padding: 0.9rem 1.1rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.05rem;
+}
+
+/* Hide the native disclosure marker in both engines. */
+.fold > summary::-webkit-details-marker {
+  display: none;
+}
+
+.fold > summary::marker {
+  content: '';
+}
+
+/* Chevron drawn from two borders; rotates when the section opens. */
+.fold > summary::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  flex: none;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg) translate(-1px, -1px);
+  transition: transform 0.2s ease;
+}
+
+.fold[open] > summary::before {
+  transform: rotate(45deg) translate(-2px, -2px);
+}
+
+.fold > summary:hover,
+.fold > summary:focus-visible {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.fold-body {
+  padding: 0 1.1rem 1.1rem;
+}
+
+/* ---- Paired cards: two subjects side by side ---- */
+
+/* Capped: on a 1536px container two free columns would render square photos
+   over 700px tall, and the paragraphs under them would run far past a
+   comfortable line length. */
+.pair-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+  max-width: 760px;
+}
+
+@media (min-width: 720px) {
+  .pair-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.pair-item h3 {
+  margin: 0 0 0.7rem;
+  font-size: 1.15rem;
+}
+
+.pair-item figure {
+  margin: 0 0 0.75rem;
+}
+
+/* Both photos are squared off so the two columns line up regardless of the
+   originals' aspect ratios. */
+.pair-item img {
+  display: block;
+  width: 100%;
+  /* height:auto is required — the img height attribute maps to a CSS height,
+     and a definite width *and* height makes aspect-ratio a no-op. */
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 1px solid var(--line);
+}
+
+.pair-item figcaption {
+  margin-top: 0.45rem;
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.pair-item p {
+  margin: 0 0 0.8rem;
+  color: var(--text-soft);
+}
+
+.pair-item p:last-child {
+  margin-bottom: 0;
+}
+
+.pair-item code {
+  font-family: 'Ubuntu Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 1em;
+  color: var(--accent);
+}
+
+/* ---- Media row: a picture beside a paragraph ---- */
+
+.media-row {
+  display: grid;
+  gap: 18px;
+  align-items: start;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+  .media-row {
+    grid-template-columns: 260px 1fr;
+  }
+
+  .media-row.reverse {
+    grid-template-columns: 1fr 260px;
+  }
+
+  .media-row.reverse .media-figure {
+    order: 2;
+  }
+}
+
+.media-figure {
+  margin: 0;
+}
+
+.media-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+}
+
+.media-figure figcaption {
+  margin-top: 0.5rem;
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.media-body p {
+  margin: 0 0 0.9rem;
+  color: var(--text-soft);
+}
+
+.media-body p:last-child {
+  margin-bottom: 0;
+}
+
+.media-body code {
+  font-family: 'Ubuntu Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 1em;
+  color: var(--accent);
+}
+
+/* ---- Hero portrait ---- */
+
+.hero-split {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+
+@media (min-width: 860px) {
+  .hero-split {
+    grid-template-columns: 1fr 380px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-split {
+    grid-template-columns: 1fr 440px;
+  }
+}
+
+.hero-portrait {
+  margin: 0;
+}
+
+.hero-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+}
+
+.hero-portrait figcaption {
+  margin-top: 0.5rem;
+  text-align: right;
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 /* ---- Video ---- */
 
 .video-grid {
