@@ -208,6 +208,132 @@ h1 {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
+/* Stack Sans Notch has no CJK glyphs — name the fallbacks explicitly so the
+   Chinese name renders in a matching system face instead of a random default. */
+:lang(zh-Hans),
+:lang(zh) {
+  font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+}
+
+/* ---- Prose ---- */
+
+.prose {
+  max-width: 68ch;
+}
+
+.prose p {
+  margin: 0 0 1rem;
+  color: var(--text-soft);
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.prose-close {
+  margin-top: 1.4rem;
+  color: var(--text);
+}
+
+/* ---- Video ---- */
+
+.video-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.video-card {
+  margin: 0;
+}
+
+.video-frame {
+  position: relative;
+  background: #14120f;
+  border: 1px solid var(--line);
+  line-height: 0;
+}
+
+.video-frame video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.video-frame[data-autoplay-clip] video {
+  cursor: pointer;
+}
+
+.video-card figcaption {
+  margin-top: 0.6rem;
+  color: var(--text-soft);
+  font-size: 0.88rem;
+}
+
+.sound-toggle {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0.42rem 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(20, 18, 15, 0.62);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: #f5f3ed;
+  font-family: inherit;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.sound-toggle:hover,
+.sound-toggle:focus-visible {
+  background: rgba(20, 18, 15, 0.85);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Speaker glyph drawn in CSS: a square cone plus a triangular flare. */
+.sound-icon {
+  position: relative;
+  width: 9px;
+  height: 9px;
+  background: currentColor;
+  flex: none;
+}
+
+.sound-icon::after {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: -3px;
+  border: 7px solid transparent;
+  border-left-color: currentColor;
+  border-right-width: 0;
+}
+
+/* A slash across the speaker while muted. */
+.sound-icon::before {
+  content: '';
+  position: absolute;
+  left: -3px;
+  top: 3px;
+  width: 20px;
+  height: 2px;
+  background: currentColor;
+  transform: rotate(-45deg);
+  transform-origin: center;
+}
+
+.is-unmuted .sound-icon::before {
+  display: none;
+}
+
 /* ---- CV / résumé entries ---- */
 
 .entry + .entry {

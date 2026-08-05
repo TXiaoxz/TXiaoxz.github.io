@@ -3,12 +3,22 @@
     <a href="/" class="logo logo-animated" aria-label="Home" data-nav-key="home">
       <span class="logo-side">&lt;X</span><span class="logo-accent" aria-hidden="true"></span><span class="logo-side">Z&gt;</span>
     </a>
-    <div class="nav-links">
+    <button
+      type="button"
+      class="nav-toggle"
+      aria-expanded="false"
+      aria-controls="site-nav-links"
+      aria-label="Open menu"
+    >
+      <span class="nav-toggle-bars" aria-hidden="true"></span>
+    </button>
+    <div class="nav-links" id="site-nav-links">
       <a class="nav-link" href="/" data-nav-key="home">Home</a>
       <a class="nav-link" href="/research/index.html" data-nav-key="research">Research</a>
       <a class="nav-link" href="/projects/index.html" data-nav-key="projects">Projects</a>
       <a class="nav-link" href="/cv/index.html" data-nav-key="cv">CV</a>
       <a class="nav-link" href="/contact/index.html" data-nav-key="contact">Contact</a>
+      <a class="nav-link" href="/about/index.html" data-nav-key="about">About</a>
       <a class="nav-link deemphasized" href="/photos.html" data-nav-key="photos" aria-label="Photos archive">Photos</a>
     </div>
   </div>

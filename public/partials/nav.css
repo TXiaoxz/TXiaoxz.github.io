@@ -82,13 +82,115 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   white-space: nowrap;
-  overflow-x: auto;
   padding-bottom: 3px;
 }
 
 @media (min-width: 900px) {
   .site-nav .nav-links {
     gap: 22px;
+  }
+}
+
+/* ---- Collapsed menu (below 900px, where seven links no longer fit) ---- */
+
+.site-nav .nav-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Three bars: the middle one is the element, the others are pseudo-elements. */
+.site-nav .nav-toggle-bars,
+.site-nav .nav-toggle-bars::before,
+.site-nav .nav-toggle-bars::after {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform 0.22s ease, opacity 0.16s ease;
+}
+
+.site-nav .nav-toggle-bars::before,
+.site-nav .nav-toggle-bars::after {
+  content: '';
+  position: absolute;
+}
+
+.site-nav .nav-toggle-bars::before {
+  transform: translateY(-6px);
+}
+
+.site-nav .nav-toggle-bars::after {
+  transform: translateY(6px);
+}
+
+/* Open state folds the bars into an X. */
+.site-nav.is-open .nav-toggle-bars {
+  background: transparent;
+}
+
+.site-nav.is-open .nav-toggle-bars::before {
+  transform: rotate(45deg);
+}
+
+.site-nav.is-open .nav-toggle-bars::after {
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 899px) {
+  .site-nav .nav-toggle {
+    display: inline-flex;
+    position: relative;
+    margin-right: -8px;
+  }
+
+  .site-nav .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 4px 0 10px;
+    /* Fully opaque on purpose: a menu panel needs to be readable, and the
+       translucency that suits the bar itself makes stacked links hard to read. */
+    background: #f5f3ed;
+    border-bottom: 1px solid var(--line, rgba(0, 0, 0, 0.1));
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  .site-nav.is-open .nav-links {
+    display: flex;
+  }
+
+  /* Roomy tap targets; the sliding underline doesn't read on stacked links. */
+  .site-nav .nav-link {
+    padding: 0.85rem 1.5rem;
+    border-left: 2px solid transparent;
+  }
+
+  .site-nav .nav-link::after {
+    display: none;
+  }
+
+  .site-nav .nav-link.active {
+    border-left-color: currentColor;
+  }
+}
+
+@media (max-width: 899px) and (min-width: 768px) {
+  .site-nav .nav-link {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - Xupeng Zhang</title>
+    <link rel="stylesheet" href="/academic-pages.css?v=4" />
+    <link rel="stylesheet" href="/partials/nav.css?v=2" />
+  </head>
+  <body>
+    <div id="nav-root"></div>
+    <script src="/partials/nav.js?v=2" defer></script>
+
+    <main class="container">
+      <header class="page-hero">
+        <p class="eyebrow">About</p>
+        <h1>About Me</h1>
+        <p class="hero-copy">
+          My name is Xupeng Zhang (<span lang="zh-Hans">张续鹏</span>). Most people here call me Zack.
+          I'm a master's student in Electrical and Computer Engineering at Johns Hopkins, working on machine
+          learning for medical imaging in the LDR Group. This page is the part that isn't research.
+        </p>
+      </header>
+
+      <section class="section">
+        <h2>How I got here</h2>
+        <div class="prose">
+          <p>
+            I moved to the US in middle school with very little English. I couldn't follow class, my grades
+            showed it, and for a while I kept to myself. I started high school with a 1.9 GPA and a warning that
+            I might be asked to leave.
+          </p>
+          <p>
+            Mr. Hilton, my high school choir teacher, noticed I could sing and brought me into the choir. He also
+            taught AP Computer Science. I spent the next three years in both of his rooms. I sang first tenor and
+            led the section, and I took four AP courses my senior year and got an A in every one.
+          </p>
+          <p>
+            I kept singing in college — not leading anymore, but I never stopped. Singing and computer science
+            both started in the same place, with the same teacher.
+          </p>
+          <p class="prose-close">Thank you, Mr. Hilton.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Singing</h2>
+        <p class="section-lead">Two clips. The first one plays on its own — tap it if you want the sound.</p>
+
+        <div class="video-grid">
+          <figure class="video-card">
+            <div class="video-frame" data-autoplay-clip>
+              <video
+                id="choir-clip"
+                src="/video/choir-solo.mp4"
+                poster="/video/choir-solo-poster.jpg"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+                width="1280"
+                height="720"
+              ></video>
+              <button type="button" class="sound-toggle" aria-pressed="false">
+                <span class="sound-icon" aria-hidden="true"></span>
+                <span class="sound-label">Sound off</span>
+              </button>
+            </div>
+            <figcaption>Choir solo</figcaption>
+          </figure>
+
+          <figure class="video-card">
+            <div class="video-frame">
+              <video
+                src="/video/personal-solo.mp4"
+                poster="/video/personal-solo-poster.jpg"
+                controls
+                playsinline
+                preload="none"
+                width="1280"
+                height="720"
+              ></video>
+            </div>
+            <figcaption>Personal solo — press play</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <div class="footer">
+        <span>© 2026 Xupeng Zhang</span>
+        <a href="/photos.html">Photography archive</a>
+      </div>
+    </main>
+
+    <script>
+      (function () {
+        var frame = document.querySelector('[data-autoplay-clip]');
+        if (!frame) return;
+        var video = frame.querySelector('video');
+        var button = frame.querySelector('.sound-toggle');
+        var label = button.querySelector('.sound-label');
+        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function setSound(on) {
+          video.muted = !on;
+          button.setAttribute('aria-pressed', on ? 'true' : 'false');
+          label.textContent = on ? 'Sound on' : 'Sound off';
+          frame.classList.toggle('is-unmuted', on);
+        }
+
+        // Give up the autoplay behaviour and hand back native controls.
+        function fallback() {
+          video.controls = true;
+          button.hidden = true;
+        }
+
+        // Readers who ask for reduced motion get a still frame, not a moving one.
+        if (reduced) {
+          video.removeAttribute('autoplay');
+          video.pause();
+          fallback();
+          return;
+        }
+
+        // The autoplay attribute does the real work. This is only a nudge for
+        // browsers that defer it, and a transient rejection here means nothing —
+        // the timeout below is what decides whether autoplay actually failed.
+        var attempt = video.play();
+        if (attempt && typeof attempt.catch === 'function') attempt.catch(function () {});
+        setTimeout(function () {
+          if (video.paused) fallback();
+        }, 1500);
+
+        button.addEventListener('click', function (event) {
+          event.stopPropagation();
+          setSound(video.muted);
+          if (video.paused) video.play();
+        });
+
+        video.addEventListener('click', function () {
+          setSound(video.muted);
+          if (video.paused) video.play();
+        });
+      })();
+    </script>
+  </body>
+</html>
