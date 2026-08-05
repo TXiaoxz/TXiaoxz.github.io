@@ -64,6 +64,13 @@ a {
   }
 }
 
+/* Narrower measure for pages that read as prose rather than as a dense CV.
+   At the full 1536px the paragraphs run far too long and the picture grids
+   leave big empty gutters inside their section cards. */
+.container--reading {
+  max-width: 880px;
+}
+
 /* Navbar styles live in /partials/nav.css — single source of truth. */
 
 main {
@@ -104,13 +111,13 @@ h1 {
 }
 
 .section h2 {
-  margin: 0;
+  margin: 0 0 0.9rem;
   font-size: 1.4rem;
   letter-spacing: 0.01em;
 }
 
 .section-lead {
-  margin: 0.6rem 0 1rem;
+  margin: 0 0 1rem;
   color: var(--text-soft);
 }
 
@@ -163,7 +170,7 @@ h1 {
 }
 
 .list {
-  margin: 0.4rem 0 0;
+  margin: 0.65rem 0 0;
   padding-left: 1.1rem;
   color: var(--text-soft);
 }
@@ -288,14 +295,10 @@ h1 {
 
 /* ---- Paired cards: two subjects side by side ---- */
 
-/* Capped: on a 1536px container two free columns would render square photos
-   over 700px tall, and the paragraphs under them would run far past a
-   comfortable line length. */
 .pair-grid {
   display: grid;
   gap: 24px;
   grid-template-columns: 1fr;
-  max-width: 760px;
 }
 
 @media (min-width: 720px) {
@@ -349,6 +352,34 @@ h1 {
   color: var(--accent);
 }
 
+/* ---- Two landscape photos side by side ---- */
+
+.photo-duo {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 720px) {
+  .photo-duo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.photo-duo figure {
+  margin: 0;
+}
+
+.photo-duo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border: 1px solid var(--line);
+}
+
 /* ---- Media row: a picture beside a paragraph ---- */
 
 .media-row {
@@ -358,9 +389,11 @@ h1 {
   grid-template-columns: 1fr;
 }
 
+/* Even split so this row keeps the same rhythm as the two-column picture
+   sections above and below it. */
 @media (min-width: 720px) {
   .media-row {
-    grid-template-columns: 260px 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .media-row.reverse {
@@ -415,15 +448,11 @@ h1 {
   align-items: center;
 }
 
+/* Sized against the 880px reading container, not the viewport: a wider photo
+   column here would squeeze the intro paragraph below a readable measure. */
 @media (min-width: 860px) {
   .hero-split {
-    grid-template-columns: 1fr 380px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .hero-split {
-    grid-template-columns: 1fr 440px;
+    grid-template-columns: 1fr 360px;
   }
 }
 
@@ -549,8 +578,8 @@ h1 {
 /* ---- CV / résumé entries ---- */
 
 .entry + .entry {
-  margin-top: 20px;
-  padding-top: 20px;
+  margin-top: 26px;
+  padding-top: 26px;
   border-top: 1px solid var(--line);
 }
 
@@ -562,7 +591,7 @@ h1 {
   height: 28px;
   width: auto;
   max-width: 100%;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .entry-logo--stacked {
@@ -592,12 +621,14 @@ h1 {
 }
 
 .entry-meta {
-  margin: 0.35rem 0 0;
+  margin: 0.5rem 0 0;
   color: var(--text-soft);
   font-size: 0.92rem;
 }
 
-.entry-meta .accent {
+/* Utility, deliberately unscoped: accented links also appear inside entry
+   headings, not only in .entry-meta. */
+.accent {
   color: var(--accent);
 }
 
