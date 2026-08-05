@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CV - Xupeng Zhang</title>
-    <link rel="stylesheet" href="/academic-pages.css?v=2" />
+    <link rel="stylesheet" href="/academic-pages.css?v=3" />
     <link rel="stylesheet" href="/partials/nav.css" />
   </head>
   <body>
@@ -14,58 +14,223 @@
     <main class="container">
       <header class="page-hero">
         <p class="eyebrow">CV</p>
-        <h1>Curriculum Vitae Snapshot</h1>
+        <h1>Curriculum Vitae</h1>
         <p class="hero-copy">
-          Concise academic overview. Use this page for the latest education profile and key focus areas.
+          Xupeng (Zack) Zhang — M.S.E. student in Electrical and Computer Engineering at Johns Hopkins University,
+          working on machine learning for medical imaging and healthcare in the LDR Group.
         </p>
+        <div class="cta-row">
+          <a class="cta primary" href="mailto:xzhan419@jh.edu">xzhan419@jh.edu</a>
+          <a class="cta" href="https://github.com/TXiaoxz" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
       </header>
 
       <section class="section">
         <h2>Education</h2>
-        <div class="card-grid">
-          <article class="card">
+        <div class="entry">
+          <img
+            class="entry-logo entry-logo--stacked"
+            src="/logos/jhu-whiting.png"
+            alt="Johns Hopkins Whiting School of Engineering"
+            width="542"
+            height="142"
+          />
+          <div class="entry-head">
             <h3>Johns Hopkins University</h3>
-            <p>M.S.E., Electrical and Computer Engineering</p>
-            <p>Aug 2025 - May 2027 (Expected), Baltimore, MD</p>
-          </article>
-          <article class="card">
+            <span class="entry-date">Aug 2025 – May 2027 (Expected)</span>
+          </div>
+          <p class="entry-meta">
+            Master of Science in Engineering, Electrical and Computer Engineering · Baltimore, MD
+          </p>
+          <p class="entry-meta">
+            Relevant coursework: Generative Models for Computer Vision and Biomedical Imaging; Deep Learning;
+            Machine Learning for Signal Processing; Random Signal Analysis.
+          </p>
+        </div>
+        <div class="entry">
+          <img
+            class="entry-logo"
+            src="/logos/ucdavis-engineering.png"
+            alt="UC Davis College of Engineering"
+            width="775"
+            height="127"
+          />
+          <div class="entry-head">
             <h3>University of California, Davis</h3>
-            <p>B.S., Computer Science</p>
-            <p>Sep 2021 - Mar 2025, Davis, CA</p>
-          </article>
+            <span class="entry-date">Sep 2021 – Mar 2025</span>
+          </div>
+          <p class="entry-meta">Bachelor of Science, Computer Science · Davis, CA</p>
         </div>
       </section>
 
       <section class="section">
-        <h2>Academic and Technical Focus</h2>
-        <div class="split">
-          <article class="card">
-            <h3>Research Themes</h3>
-            <ul class="list">
-              <li>Medical imaging and multimodal registration</li>
-              <li>Segmentation and vessel-aware localization</li>
-              <li>Computer vision and large language models</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>Current Coursework</h3>
-            <ul class="list">
-              <li>Machine Learning for Signal Processing (EN.520.612)</li>
-              <li>Audio Signal Processing (EN.520.645)</li>
-              <li>Random Signal Analysis (EN.520.651)</li>
-            </ul>
-          </article>
+        <h2>Research Experience</h2>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3>ROI-Centered MRI–MRA Registration for Trigeminal Neuralgia</h3>
+            <span class="entry-date">Nov 2025 – Present</span>
+          </div>
+          <p class="entry-meta">Research Assistant, LDR Group · Johns Hopkins University</p>
+          <p class="entry-meta">
+            Advised by
+            <a class="accent" href="https://peirong26.github.io/" target="_blank" rel="noopener noreferrer">Prof. Peirong Liu</a>
+            (ECE / DSAI) and Risheng Xu, M.D., Ph.D. (Neurosurgery)
+          </p>
+          <ul class="list">
+            <li>
+              Reframed MRI–TOF-MRA fusion for trigeminal neuralgia as an ROI-centered neurovascular evaluation
+              problem rather than generic whole-brain registration; first-author manuscript under review at
+              IEEE Transactions on Medical Imaging.
+            </li>
+            <li>
+              Built the end-to-end preprocessing, registration, and evaluation pipeline over a 149-patient
+              microvascular-decompression cohort with 298 clinician-annotated trigeminal ROIs; released the
+              benchmark and evaluation code publicly.
+            </li>
+            <li>
+              Benchmarked six registration pipelines (ANTs Affine/SyN, ConvexAdam, FireANTs, EasyReg, SynthMorph)
+              and showed that image-similarity, vessel-separability, and downstream localization metrics do not
+              co-rank methods.
+            </li>
+            <li>
+              Identified a volume confound in the standard one-sided vessel distance (Spearman ρ = −0.53, versus
+              +0.08 in the reverse direction): common metrics systematically favor methods producing larger vessel
+              trees under partial clinical annotations.
+            </li>
+            <li>
+              Designed and ran a blinded two-neurosurgeon reader study over 100 stratified ROIs, exposing globally
+              implausible registrations hidden by favorable local metrics — the best-scoring method failed at the
+              whole-brain level in 71 of 100 cases.
+            </li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3>T2-Only Cerebral Vessel Segmentation via Teacher–Student Learning</h3>
+            <span class="entry-date">Mar 2026 – Present</span>
+          </div>
+          <p class="entry-meta">Independent Research Project, LDR Group · Johns Hopkins University</p>
+          <p class="entry-meta">
+            Advised by
+            <a class="accent" href="https://peirong26.github.io/" target="_blank" rel="noopener noreferrer">Prof. Peirong Liu</a>
+            (ECE / DSAI)
+          </p>
+          <ul class="list">
+            <li>
+              Investigated whether cerebral vessels can be segmented from routinely acquired T2 MRI alone, using
+              paired MRA only as a training-time supervision source — removing the MRA dependency that constrains
+              the work above.
+            </li>
+            <li>
+              Repurposed the VesselFM foundation model as an MRA-side teacher — it collapses when applied directly
+              to T2 (Dice 0.041) — warping its pseudo-labels into T2 space to supervise a 3D nnU-Net student that
+              requires no MRA at inference.
+            </li>
+            <li>
+              Reached Dice 0.489 ± 0.043 on held-out subjects from a 568-subject IXI cohort — +0.448 over zero-shot
+              VesselFM and within 0.072 of an oracle trained on manual MRA labels, using no manual annotation.
+            </li>
+            <li>
+              Separated label quality from label quantity: at identical training-set size, teacher-derived
+              pseudo-labels beat placeholder labels by +0.118 Dice, showing that pseudo-label scale helps only when
+              the teacher observes the correct modality.
+            </li>
+          </ul>
         </div>
       </section>
 
-      <section class="section" id="download">
-        <h2>CV Access</h2>
-        <p class="section-lead">
-          A PDF version can be provided upon request while the public download version is being prepared.
-        </p>
-        <div class="cta-row">
-          <a class="cta primary" href="mailto:xzhan419@jh.edu">Request CV by Email</a>
-          <a class="cta" href="/research/index.html">View Research</a>
+      <section class="section">
+        <h2>Publications &amp; Manuscripts</h2>
+        <ul class="pub-list">
+          <li>
+            <span>X. Zhang, X. Wang, M. Xie, H. Liang, H. E. Lien, O. Das, J. Feghali, R. Xu, P. Liu.</span>
+            <span class="pub-title">
+              “Evaluation Principles for MRI–MRA Registration in Trigeminal Neuralgia: An ROI-Centered
+              Neurovascular Benchmark.”
+            </span>
+            <span class="pub-venue">
+              IEEE Transactions on Medical Imaging, <span class="under-review">under review</span>, 2026.
+            </span>
+          </li>
+          <li>
+            <span>X. Zhang.</span>
+            <span class="pub-title">
+              “Trajectory of Mobile Grasping Robot in Reinforcement Learning Application.”
+            </span>
+            <span class="pub-venue">
+              China Science and Technology, ISSN 1671-2064; CN11-4650/N, Jul 2024.
+            </span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Selected Projects</h2>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Fine-Tuning LLMs on a Traditional Chinese Medicine Corpus</h3>
+            <span class="entry-date">Team Lead · 5 members</span>
+          </div>
+          <ul class="list">
+            <li>
+              Curated a domain-specific Traditional Chinese Medicine corpus and fine-tuned LLaMA, Mistral, and Phi
+              to study how general-purpose LLMs adapt to specialized medical language, evaluated by perplexity,
+              accuracy, and BLEU.
+            </li>
+          </ul>
+        </div>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Human Action Prediction from Skeletons</h3>
+            <span class="entry-date">UC Davis</span>
+          </div>
+          <ul class="list">
+            <li>
+              Built a temporal model forecasting 5 future skeleton frames from 30 prior frames, with a custom
+              pipeline to extract and align pose keypoints across a large video dataset.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Academic Service</h2>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Organizing Committee — FOMO26: Foundation Model Challenge for Brain MRI</h3>
+            <span class="entry-date">MICCAI 2026</span>
+          </div>
+          <ul class="list">
+            <li>
+              Co-led evaluation for Task 4 (Trigeminal Neuralgia Segmentation): multiclass segmentation of the
+              trigeminal nerve and surrounding vasculature from T2-weighted MRI, scored by DSC and NSD.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Technical Skills</h2>
+        <div class="skill-row">
+          <div class="skill-label">Programming</div>
+          <p class="skill-value">
+            Python (PyTorch, TensorFlow, NumPy, SciPy, pandas, scikit-learn), C++, C, Java, SQL, JavaScript
+          </p>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Medical Imaging</div>
+          <p class="skill-value">
+            ANTs, FireANTs, ConvexAdam, SynthMorph, EasyReg, VesselFM, nnU-Net; DICOM/NIfTI, 3D registration and
+            segmentation, ROI-based evaluation
+          </p>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Tools &amp; Statistics</div>
+          <p class="skill-value">
+            Linux/Bash, Git, Conda, Jupyter; bootstrap CIs, Wilcoxon signed-rank, Spearman correlation
+          </p>
         </div>
       </section>
 

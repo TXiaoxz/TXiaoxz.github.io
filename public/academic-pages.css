@@ -208,6 +208,119 @@ h1 {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
+/* ---- CV / résumé entries ---- */
+
+.entry + .entry {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+/* Logos are optically balanced by rendered width (~170px), not by height:
+   the JHU lockup stacks a shield over two text lines, so matching heights
+   would shrink its wordmark below legibility. */
+.entry-logo {
+  display: block;
+  height: 28px;
+  width: auto;
+  max-width: 100%;
+  margin-bottom: 12px;
+}
+
+.entry-logo--stacked {
+  height: 44px;
+}
+
+.entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.entry-head h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.entry-date {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  white-space: nowrap;
+}
+
+.entry-meta {
+  margin: 0.35rem 0 0;
+  color: var(--text-soft);
+  font-size: 0.92rem;
+}
+
+.entry-meta .accent {
+  color: var(--accent);
+}
+
+.pub-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pub-list li + li {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.pub-title {
+  display: block;
+  margin-top: 0.2rem;
+}
+
+.pub-venue {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--text-soft);
+  font-size: 0.92rem;
+}
+
+.pub-venue .under-review {
+  color: var(--accent);
+}
+
+.skill-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+}
+
+.skill-row + .skill-row {
+  margin-top: 12px;
+}
+
+@media (min-width: 720px) {
+  .skill-row {
+    grid-template-columns: 170px 1fr;
+    gap: 14px;
+  }
+}
+
+.skill-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  color: rgba(0, 0, 0, 0.5);
+  padding-top: 0.22rem;
+}
+
+.skill-value {
+  color: var(--text-soft);
+  margin: 0;
+}
+
 .footer {
   margin-top: 26px;
   border-top: 1px solid var(--line);

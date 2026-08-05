@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Research - Xupeng Zhang</title>
-    <link rel="stylesheet" href="/academic-pages.css?v=2" />
+    <link rel="stylesheet" href="/academic-pages.css?v=3" />
     <link rel="stylesheet" href="/partials/nav.css" />
   </head>
   <body>
@@ -14,93 +14,113 @@
     <main class="container">
       <header class="page-hero">
         <p class="eyebrow">Research</p>
-        <h1>Research Focus</h1>
+        <h1>Research</h1>
         <p class="hero-copy">
-          My current work centers on medical imaging and machine learning, with growing interests in
-          computer vision and large language models. Emphasis on multimodal registration, segmentation
-          quality, and reproducible evaluation.
+          I work on machine learning for neurovascular imaging in the LDR Group at Johns Hopkins — how
+          registration and segmentation methods are evaluated when the clinically meaningful signal lives in a
+          small region of interest rather than the whole brain.
         </p>
       </header>
 
       <section class="section">
-        <h2>Featured Directions</h2>
-        <p class="section-lead">Current and recent directions anchored in ongoing coursework and lab work.</p>
-        <div class="card-grid">
-          <article id="mri-mra" class="card">
-            <div class="meta-row">
-              <span class="chip">Medical Imaging</span>
-              <span class="status">Active @ JHU</span>
-            </div>
-            <h3>Multimodal MRI-MRA Registration for Trigeminal Neuralgia</h3>
-            <p>
-              Developing multimodal registration pipelines to support vessel localization in trigeminal neuralgia,
-              with explicit evaluation beyond whole-brain metrics.
-            </p>
-            <ul class="list">
-              <li>ROI-focused overlap, intensity-similarity, and distance-based metrics</li>
-              <li>Failure-case analysis for vessel-level misalignment</li>
-              <li>Exploration of manual labels, pseudo-labels, and vessel-aware priors</li>
-            </ul>
-          </article>
+        <h2>Research Projects</h2>
 
-          <article id="neurovascular" class="card">
-            <div class="meta-row">
-              <span class="chip">Segmentation</span>
-              <span class="status">Pipeline Work</span>
-            </div>
-            <h3>Neurovascular Segmentation and Vessel Localization Pipeline</h3>
-            <p>
-              Building preprocessing and quality-control pipelines for 3D neuroimaging data, then integrating vessel
-              segmentation outputs into downstream analysis.
-            </p>
-            <ul class="list">
-              <li>Masking, cropping, label conversion, and image-space standardization</li>
-              <li>Automated processing scripts for reproducible experiments</li>
-              <li>Alignment with expert-annotated vessel regions for analysis</li>
-            </ul>
-          </article>
-
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>Methods and Evaluation Style</h2>
-        <div class="split">
-          <article class="card">
-            <h3>Experimental Priorities</h3>
-            <ul class="list">
-              <li>Reproducible preprocessing and experiment setup</li>
-              <li>Clear ablation or comparative model baselines</li>
-              <li>Targeted metrics aligned with downstream use</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>Tooling and Workflow</h3>
-            <ul class="list">
-              <li>Python-centered pipelines with data and model versioning discipline</li>
-              <li>Automated evaluation scripts for consistent reporting</li>
-              <li>Iterative debugging from data quality to model behavior</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>Writing</h2>
-        <article class="card">
-          <h3>Selected Publication</h3>
-          <p>
-            X. Zhang. "Trajectory of Mobile Grasping Robot in Reinforcement Learning Application." China Science and
-            Technology, ISSN 1671-2064; CN11-4650/N, Jul 2024.
+        <div class="entry" id="mri-mra">
+          <div class="entry-head">
+            <h3>ROI-Centered MRI–MRA Registration for Trigeminal Neuralgia</h3>
+            <span class="entry-date">Nov 2025 – Present</span>
+          </div>
+          <p class="entry-meta">Research Assistant, LDR Group · Johns Hopkins University</p>
+          <p class="entry-meta">
+            Advised by
+            <a class="accent" href="https://peirong26.github.io/" target="_blank" rel="noopener noreferrer">Prof. Peirong Liu</a>
+            (ECE / DSAI) and Risheng Xu, M.D., Ph.D. (Neurosurgery)
           </p>
-        </article>
-        <article class="card" style="margin-top: 12px">
-          <h3>Manuscripts in preparation</h3>
           <ul class="list">
-            <li>Comparative manuscript on domain-adapted LLM fine-tuning for Traditional Chinese Medicine data.</li>
-            <li>Ongoing write-up on multimodal registration quality and vessel-aware evaluation.</li>
+            <li>
+              Reframed MRI–TOF-MRA fusion for trigeminal neuralgia as an ROI-centered neurovascular evaluation
+              problem rather than generic whole-brain registration.
+            </li>
+            <li>
+              Built the end-to-end preprocessing, registration, and evaluation pipeline over a 149-patient
+              microvascular-decompression cohort with 298 clinician-annotated trigeminal ROIs.
+            </li>
+            <li>
+              Benchmarked six registration pipelines (ANTs Affine/SyN, ConvexAdam, FireANTs, EasyReg, SynthMorph)
+              and showed that image-similarity, vessel-separability, and downstream localization metrics do not
+              co-rank methods.
+            </li>
+            <li>
+              Identified a volume confound in the standard one-sided vessel distance (Spearman ρ = −0.53, versus
+              +0.08 in the reverse direction): common metrics systematically favor methods producing larger vessel
+              trees under partial clinical annotations.
+            </li>
+            <li>
+              Designed and ran a blinded two-neurosurgeon reader study over 100 stratified ROIs, exposing globally
+              implausible registrations hidden by favorable local metrics — the best-scoring method failed at the
+              whole-brain level in 71 of 100 cases.
+            </li>
           </ul>
-        </article>
+          <p class="entry-meta">
+            X. Zhang, X. Wang, M. Xie, H. Liang, H. E. Lien, O. Das, J. Feghali, R. Xu, P. Liu.
+            “Evaluation Principles for MRI–MRA Registration in Trigeminal Neuralgia: An ROI-Centered Neurovascular
+            Benchmark.” IEEE Transactions on Medical Imaging, <span class="accent">under review</span>, 2026.
+            The benchmark and evaluation code will be released publicly.
+          </p>
+        </div>
+
+        <div class="entry" id="neurovascular">
+          <div class="entry-head">
+            <h3>T2-Only Cerebral Vessel Segmentation via Teacher–Student Learning</h3>
+            <span class="entry-date">Mar 2026 – Present</span>
+          </div>
+          <p class="entry-meta">Independent Research Project, LDR Group · Johns Hopkins University</p>
+          <p class="entry-meta">
+            Advised by
+            <a class="accent" href="https://peirong26.github.io/" target="_blank" rel="noopener noreferrer">Prof. Peirong Liu</a>
+            (ECE / DSAI)
+          </p>
+          <ul class="list">
+            <li>
+              Investigated whether cerebral vessels can be segmented from routinely acquired T2 MRI alone, using
+              paired MRA only as a training-time supervision source — removing the MRA dependency that constrains
+              the work above.
+            </li>
+            <li>
+              Repurposed the VesselFM foundation model as an MRA-side teacher — it collapses when applied directly
+              to T2 (Dice 0.041) — warping its pseudo-labels into T2 space to supervise a 3D nnU-Net student that
+              requires no MRA at inference.
+            </li>
+            <li>
+              Reached Dice 0.489 ± 0.043 on held-out subjects from a 568-subject IXI cohort — +0.448 over zero-shot
+              VesselFM and within 0.072 of an oracle trained on manual MRA labels, using no manual annotation.
+            </li>
+            <li>
+              Separated label quality from label quantity: at identical training-set size, teacher-derived
+              pseudo-labels beat placeholder labels by +0.118 Dice, showing that pseudo-label scale helps only when
+              the teacher observes the correct modality.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Academic Service</h2>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>
+              Organizing Committee —
+              <a class="accent" href="https://fomo26.github.io/" target="_blank" rel="noopener noreferrer">FOMO26: Foundation Model Challenge for Brain MRI</a>
+            </h3>
+            <span class="entry-date">MICCAI 2026</span>
+          </div>
+          <ul class="list">
+            <li>
+              Co-led evaluation for Task 4 (Trigeminal Neuralgia Segmentation): multiclass segmentation of the
+              trigeminal nerve and surrounding vasculature from T2-weighted MRI, scored by DSC and NSD.
+            </li>
+          </ul>
+        </div>
       </section>
 
       <div class="footer">
