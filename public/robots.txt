@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xzhan419.com/sitemap.xml
