@@ -96,7 +96,7 @@ export default function App() {
                 <Reveal delay={0.2} y={24} duration={0.8}>
                   <figure className="w-full max-w-[560px] ml-auto">
                     <ImageWithFallback
-                      src="/photos/IMG_0086.jpg"
+                      src="/photos/hero.webp"
                       alt="Blossoming tree along a road at dusk on the UC Davis campus, photographed by Xupeng Zhang"
                       className="w-full h-[400px] md:h-[540px] object-cover border border-black/10"
                     />
