@@ -63,7 +63,13 @@ PAGES = {
         "Hangzhou, and Xinjiang.",
         "/og-photos.jpg",
     ),
-    # public/projects/index.html is deliberately absent — that page is being rewritten.
+    "public/projects/index.html": (
+        "/projects/",
+        "Projects — Xupeng Zhang",
+        "ROI-centered MRI–MRA registration, pose-based human action prediction, LLM fine-tuning "
+        "on a Traditional Chinese Medicine corpus, and a real-time WebGL shadow mapping engine.",
+        "/og.jpg",
+    ),
 }
 
 

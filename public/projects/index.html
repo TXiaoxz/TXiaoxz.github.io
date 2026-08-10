@@ -3,132 +3,203 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects - Xupeng Zhang</title>
+    <!-- meta:start -->
+    <title>Projects — Xupeng Zhang</title>
+    <meta name="description" content="ROI-centered MRI–MRA registration, pose-based human action prediction, LLM fine-tuning on a Traditional Chinese Medicine corpus, and a real-time WebGL shadow mapping engine." />
+    <link rel="canonical" href="https://xzhan419.com/projects/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Xupeng Zhang" />
+    <meta property="og:url" content="https://xzhan419.com/projects/" />
+    <meta property="og:title" content="Projects — Xupeng Zhang" />
+    <meta property="og:description" content="ROI-centered MRI–MRA registration, pose-based human action prediction, LLM fine-tuning on a Traditional Chinese Medicine corpus, and a real-time WebGL shadow mapping engine." />
+    <meta property="og:image" content="https://xzhan419.com/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Projects — Xupeng Zhang" />
+    <meta name="twitter:description" content="ROI-centered MRI–MRA registration, pose-based human action prediction, LLM fine-tuning on a Traditional Chinese Medicine corpus, and a real-time WebGL shadow mapping engine." />
+    <meta name="twitter:image" content="https://xzhan419.com/og.jpg" />
+
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" />
+    <link rel="icon" href="/favicon-192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- meta:end -->
+    <link rel="stylesheet" href="/academic-pages.css?v=18" />
     <link rel="stylesheet" href="/partials/nav.css?v=2" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      @font-face {
-        font-family: 'Stack Sans Notch';
-        src: url('/fonts/StackSansNotch-VariableFont_wght.ttf') format('truetype-variations'),
-             url('/fonts/StackSansNotch-VariableFont_wght.ttf') format('truetype');
-        font-weight: 200 700;
-        font-style: normal;
-        font-display: swap;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      html {
-        font-size: 16px;
-      }
-
-      body {
-        font-family: 'Stack Sans Notch', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-          sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        font-size: 1rem;
-        line-height: 1.5;
-      }
-
-      /* Navbar styles loaded from /partials/nav.css */
-
-      .tracking-wider {
-        letter-spacing: 0.05em;
-      }
-
-      .tracking-wide {
-        letter-spacing: 0.025em;
-      }
-
-      .tracking-tight {
-        letter-spacing: -0.025em;
-      }
-
-      /* Project card - minimal style */
-      .project-card {
-        transition: transform 0.3s ease;
-      }
-
-      .project-card:hover {
-        transform: translateY(-2px);
-      }
-
-      .project-image {
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.05));
-        transition: all 0.3s ease;
-      }
-
-      .project-card:hover .project-image {
-        opacity: 0.95;
-      }
-
-      .project-title {
-        transition: color 0.3s ease;
-      }
-
-      .project-card:hover .project-title {
-        color: rgba(0, 0, 0, 0.6);
-      }
-    </style>
   </head>
-  <body class="bg-[#F5F3ED]">
+  <body>
     <div id="nav-root"></div>
     <script src="/partials/nav.js?v=2" defer></script>
 
-    <!-- Projects Section -->
-    <section class="pt-32 pb-24 px-8 min-h-screen">
-      <div class="max-w-screen-2xl mx-auto">
-        <h2 class="tracking-wider mb-16 text-center text-2xl">PROJECTS</h2>
-        <p class="text-center text-black/55 max-w-2xl mx-auto mb-14">
-          Selected engineering and technical build projects. Research-focused work is organized under the
-          <a href="/research/index.html" class="underline decoration-black/40 underline-offset-4">Research</a> page.
-        </p>
+    <main class="container container--reading">
+      <header class="page-hero">
+        <p class="eyebrow">Projects</p>
+        <h1>Projects</h1>
+        <p class="hero-copy">Selected work.</p>
+      </header>
 
-        <!-- Projects Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section class="section">
+        <div class="project-grid">
+          <article class="project-tile">
+            <figure class="project-media">
+              <img
+                src="/projects/media/tmi-pipeline.webp"
+                alt="Pipeline diagram: structural MRI with an annotated trigeminal ROI, registered MRA, and the overlap between annotation and predicted vessel"
+                width="1000"
+                height="750"
+                loading="lazy"
+              />
+            </figure>
+            <h3>ROI-Centered MRI–MRA Registration</h3>
+            <p>IEEE TMI · under review · <span class="soon">Coming soon</span></p>
+          </article>
 
-          <!-- Project 1: Shadow Mapping -->
-          <a href="/projects/shadow-mapping/index.html" class="project-card group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
-            <div class="project-image aspect-[4/3] bg-black/5 mb-4 overflow-hidden">
-              <img src="shadow-mapping-preview.gif" alt="Shadow Mapping Demo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-            </div>
-            <p class="project-title tracking-wide group-hover:translate-x-1 transition-transform duration-300">Shadow Mapping</p>
-            <p class="text-black/50 mt-1 text-sm group-hover:text-black/70 transition-colors duration-300">WebGL Rendering Engine</p>
+          <a class="project-tile" href="https://github.com/TXiaoxz/Human_pose" target="_blank" rel="noopener noreferrer">
+            <figure class="project-media" data-hover-clip>
+              <video
+                src="/projects/media/pose-preview.mp4"
+                poster="/projects/media/pose-poster.jpg"
+                autoplay
+                muted
+                playsinline
+                preload="auto"
+                width="320"
+                height="240"
+                aria-label="Multi-person pose estimation running on video, with a skeleton drawn over each person"
+              ></video>
+            </figure>
+            <h3>Human Action Prediction from Skeletons</h3>
+            <p>HRNet-w32 pose pipeline · temporal forecasting</p>
           </a>
 
-          <!-- Project 2: Portfolio Website -->
-          <a href="/" class="project-card group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
-            <div class="project-image aspect-[4/3] bg-black/5 mb-4 overflow-hidden">
-              <div class="w-full h-full bg-gradient-to-br from-black/8 to-black/3"></div>
-            </div>
-            <p class="project-title tracking-wide group-hover:translate-x-1 transition-transform duration-300">Academic Portfolio Website</p>
-            <p class="text-black/50 mt-1 text-sm group-hover:text-black/70 transition-colors duration-300">Vite + React + GitHub Pages</p>
+          <a class="project-tile" href="/projects/shadow-mapping/index.html">
+            <figure class="project-media" data-hover-clip>
+              <video
+                src="/projects/media/shadow-preview.mp4"
+                poster="/projects/media/shadow-poster.jpg"
+                autoplay
+                muted
+                playsinline
+                preload="auto"
+                width="800"
+                height="600"
+                aria-label="Real-time shadow mapping demo rotating a lit 3D scene"
+              ></video>
+            </figure>
+            <h3>Shadow Mapping</h3>
+            <p>Real-time WebGL rendering engine</p>
           </a>
 
-          <!-- Project 3: Photography Archive -->
-          <a href="/photos.html" class="project-card group cursor-pointer transition-transform duration-300 hover:-translate-y-1">
-            <div class="project-image aspect-[4/3] bg-black/5 mb-4 overflow-hidden">
-              <img src="/photos/thumb/IMG_1393.webp" alt="Photography archive preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-            </div>
-            <p class="project-title tracking-wide group-hover:translate-x-1 transition-transform duration-300">Photography Archive</p>
-            <p class="text-black/50 mt-1 text-sm group-hover:text-black/70 transition-colors duration-300">Image gallery and lightbox experience</p>
-          </a>
+          <article class="project-tile">
+            <figure class="project-media">
+              <img
+                src="/projects/media/tcm-tile.webp"
+                alt="Fine-tuned LLaMA 7B, Mistral 7B and Phi 2.7B, evaluated by perplexity, accuracy and BLEU"
+                width="1000"
+                height="750"
+                loading="lazy"
+              />
+            </figure>
+            <h3>Fine-Tuning LLMs on a Chinese Medicine Corpus</h3>
+            <p>Team lead · 5 members</p>
+          </article>
 
+          <a class="project-tile" href="/">
+            <figure class="project-media">
+              <img
+                src="/projects/media/site-preview.webp"
+                alt="Screenshot of this site's homepage"
+                width="1000"
+                height="750"
+                loading="lazy"
+              />
+            </figure>
+            <h3>Portfolio Website</h3>
+            <p>Vite · React · GitHub Pages</p>
+          </a>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-black/10 py-8 px-8">
-      <div class="max-w-screen-2xl mx-auto text-center text-black/50">
-        <p>© 2026 Xupeng Zhang. All rights reserved.</p>
+      <div class="footer">
+        <span>&copy; 2026 Xupeng Zhang</span>
+        <a href="/photos.html">Photography archive</a>
       </div>
-    </footer>
+    </main>
+
+    <script>
+      // Each clip runs once on load so visitors see what it is, then rests on
+      // its first frame. After that it only plays — looping — while hovered.
+      (function () {
+        var boxes = document.querySelectorAll('[data-hover-clip]');
+        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var canHover = window.matchMedia('(hover: hover)').matches;
+
+        boxes.forEach(function (box) {
+          var video = box.querySelector('video');
+          var intro = true;
+
+          // Loop is off for the opening pass — with it on, "ended" never fires
+          // and the clip would run forever.
+          video.loop = false;
+
+          function endIntro() {
+            if (!intro) return;
+            intro = false;
+            video.loop = true;
+            video.pause();
+            video.currentTime = 0;
+          }
+
+          var play = function () {
+            var p = video.play();
+            if (p && p.catch) p.catch(function () {});
+          };
+          var stop = function () {
+            if (intro) return;      // don't cut the opening pass short
+            video.pause();
+            video.currentTime = 0;
+          };
+
+          if (reduced) {
+            // Readers who ask for less motion get the still frame and nothing else.
+            video.removeAttribute('autoplay');
+            video.pause();
+            endIntro();
+          } else {
+            video.addEventListener('ended', endIntro, { once: true });
+            var attempt = video.play();
+            if (attempt && attempt.catch) {
+              // Autoplay refused: skip straight to the hover behaviour.
+              attempt.catch(endIntro);
+            }
+            // Safety net in case "ended" never arrives.
+            setTimeout(endIntro, 20000);
+          }
+
+          if (canHover) {
+            var tile = box.closest('.project-tile');
+            tile.addEventListener('mouseenter', play);
+            tile.addEventListener('mouseleave', stop);
+            tile.addEventListener('focusin', play);
+            tile.addEventListener('focusout', stop);
+            return;
+          }
+
+          // Touch screens have no hover: play while the clip is on screen.
+          if (!('IntersectionObserver' in window)) return;
+          new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) play();
+                else if (!intro) video.pause();
+              });
+            },
+            { threshold: 0.6 }
+          ).observe(box);
+        });
+      })();
+    </script>
   </body>
 </html>

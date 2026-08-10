@@ -283,6 +283,140 @@ h1 {
   right: 8px;
 }
 
+/* ---- Project grid: every project shown the same way ---- */
+
+.project-grid {
+  display: grid;
+  gap: 26px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 700px) {
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.project-tile {
+  display: block;
+  text-decoration: none;
+}
+
+.project-tile .project-media {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-tile:hover .project-media,
+.project-tile:focus-visible .project-media {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.09);
+}
+
+.project-tile h3 {
+  margin: 0.8rem 0 0;
+  font-size: 1.05rem;
+  transition: color 0.25s ease;
+}
+
+.project-tile:hover h3,
+.project-tile:focus-visible h3 {
+  color: var(--accent);
+}
+
+.project-tile p {
+  margin: 0.25rem 0 0;
+  color: var(--text-soft);
+  font-size: 0.92rem;
+}
+
+.soon {
+  color: var(--accent);
+}
+
+/* ---- Project entries ---- */
+
+.project-entry {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;
+}
+
+/* Only entries that actually carry a preview get the media column; a text-only
+   entry would otherwise be squeezed into the 300px slot. */
+@media (min-width: 720px) {
+  .project-entry:has(.project-media) {
+    grid-template-columns: 300px 1fr;
+  }
+}
+
+.project-entry + .project-entry {
+  margin-top: 26px;
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+}
+
+/* Preview clips stay still until hovered — see the script in projects/index.html. */
+.project-media {
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--surface-soft);
+  line-height: 0;
+}
+
+.project-media video,
+.project-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---- Compact list for smaller builds ---- */
+
+.mini-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mini-list li + li {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.mini-list a,
+.mini-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 14px;
+  text-decoration: none;
+}
+
+.mini-name {
+  font-size: 1rem;
+}
+
+.mini-note {
+  color: var(--text-soft);
+  font-size: 0.92rem;
+}
+
+.mini-list a .mini-arrow {
+  margin-left: auto;
+  color: var(--accent);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.mini-list a:hover .mini-name,
+.mini-list a:focus-visible .mini-name {
+  color: var(--accent);
+}
+
 /* ---- Photo timeline ---- */
 
 .timeline {
