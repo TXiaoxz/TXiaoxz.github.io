@@ -970,10 +970,6 @@ h1 {
   font-size: 0.92rem;
 }
 
-.pub-venue .under-review {
-  color: var(--accent);
-}
-
 .skill-row {
   display: grid;
   grid-template-columns: 1fr;
@@ -1016,4 +1012,3 @@ h1 {
   gap: 10px;
   flex-wrap: wrap;
 }
-
