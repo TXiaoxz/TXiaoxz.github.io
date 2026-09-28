@@ -22,7 +22,7 @@ START, END = "<!-- meta:start -->", "<!-- meta:end -->"
 PAGES = {
     "index.html": (
         "/",
-        "Xupeng (Zack) Zhang",
+        "Xupeng Zhang",
         "M.S.E. student in Electrical and Computer Engineering at Johns Hopkins, "
         "building machine learning systems for medical imaging and healthcare.",
         "/og.jpg",

@@ -51,7 +51,7 @@ export default function App() {
                     </p>
                   </Reveal>
                   <Reveal delay={0.15}>
-                    <h1 className="text-3xl md:text-5xl leading-tight">Xupeng (Zack) Zhang</h1>
+                    <h1 className="text-3xl md:text-5xl leading-tight">Xupeng Zhang</h1>
                   </Reveal>
                   <Reveal delay={0.25}>
                     <p className="text-sm md:text-base text-black/72 leading-relaxed max-w-xl">
@@ -84,6 +84,8 @@ export default function App() {
                       View Projects
                     </a>
                     <div className="flex items-center gap-3 text-sm text-black/55">
+                      <a href="https://scholar.google.com/citations?user=Xb_qeMkAAAAJ" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">Google Scholar</a>
+                      <span aria-hidden="true">·</span>
                       <a href="/cv/index.html" className="hover:text-black transition-colors">CV</a>
                       <span aria-hidden="true">·</span>
                       <a href="/contact/index.html" className="hover:text-black transition-colors">Contact</a>
@@ -119,6 +121,7 @@ export default function App() {
           <div className="md:col-span-5 flex flex-wrap md:justify-end gap-3 text-black/65">
             <a href="mailto:xzhan419@jh.edu" className="hover:text-black transition-colors">Email</a>
             <a href="https://github.com/TXiaoxz" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">GitHub</a>
+            <a href="https://scholar.google.com/citations?user=Xb_qeMkAAAAJ" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">Google Scholar</a>
             <a href="/cv/index.html" className="hover:text-black transition-colors">CV</a>
             <a href="/contact/index.html" className="hover:text-black transition-colors">Contact</a>
           </div>

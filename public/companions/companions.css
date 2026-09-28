@@ -1,0 +1,238 @@
+.site-companions {
+  --companion-footer-lift: 0px;
+  position: fixed;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: calc(max(14px, env(safe-area-inset-bottom)) + var(--companion-footer-lift));
+  z-index: 30;
+  width: 242px;
+  color: #423e35;
+  font-family: 'Stack Sans Notch', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  pointer-events: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.site-companions *,
+.site-companions *::before,
+.site-companions *::after {
+  box-sizing: border-box;
+}
+
+.site-companions[hidden],
+.site-companions [hidden] {
+  display: none !important;
+}
+
+.site-companions__announcement {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.site-companions button {
+  margin: 0;
+  border: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  pointer-events: auto;
+}
+
+.site-companions button:focus-visible {
+  outline: 2px solid #716e4c;
+  outline-offset: 4px;
+}
+
+.site-companions button svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+.site-companions__stage {
+  width: 242px;
+  height: 140px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0;
+}
+
+.site-companions__traveler {
+  flex: 0 0 auto;
+}
+
+.site-companions__traveler--benben {
+  margin-left: -22px;
+}
+
+.site-companions__character {
+  position: relative;
+  display: block;
+  width: 132px;
+  height: 132px;
+  padding: 0;
+  background: transparent;
+  border-radius: 30%;
+}
+
+.site-companions__character--benben {
+  width: 95px;
+  height: 95px;
+}
+
+.site-companions__sprite {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 200% 200%;
+  background-position: 0 0;
+  transform-origin: 50% 91%;
+  animation: companion-breathe 4.8s ease-in-out infinite;
+  filter: drop-shadow(0 3px 2px rgba(71, 59, 36, 0.08));
+}
+
+.site-companions__character--zack .site-companions__sprite {
+  background-image: url('/companions/zack-jhu.png');
+}
+
+.site-companions__character--benben .site-companions__sprite {
+  background-image: url('/companions/benben.png');
+  animation-delay: -1.8s;
+}
+
+.site-companions [data-pose='greeting'] .site-companions__sprite {
+  background-position: 100% 0;
+}
+
+.site-companions [data-pose='happy'] .site-companions__sprite {
+  background-position: 0 100%;
+}
+
+.site-companions [data-pose='quiet'] .site-companions__sprite {
+  background-position: 100% 100%;
+}
+
+.site-companions__character--benben[data-pose='quiet'] .site-companions__sprite {
+  /* The previous atlas cell spills 10px into this 627px cell. The sleeping
+     cat starts at row 129; this 50px crop also clears the stray shadow. */
+  clip-path: inset(8% 0 0);
+}
+
+.site-companions__controls,
+.site-companions__restore {
+  width: max-content;
+  margin-left: auto;
+  border: 1px solid rgba(111, 103, 81, 0.2);
+  background: rgba(252, 250, 243, 0.93);
+  box-shadow: 0 3px 14px rgba(65, 55, 34, 0.06);
+  border-radius: 999px;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.site-companions__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+  padding: 0;
+}
+
+.site-companions__controls button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  min-height: 44px;
+  padding: 10px;
+  background: transparent;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.site-companions__controls button:hover,
+.site-companions__restore:hover {
+  color: #1f251b;
+  background-color: rgba(223, 225, 207, 0.45);
+}
+
+.site-companions .site-companions__restore {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  justify-content: center;
+  width: 44px;
+  min-height: 44px;
+  padding: 10px;
+  border: 1px solid rgba(111, 103, 81, 0.2);
+}
+
+.site-companions[data-paused='true'] .site-companions__sprite {
+  animation-play-state: paused;
+}
+
+@keyframes companion-breathe {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.012); }
+}
+
+@media (max-width: 600px) {
+  .site-companions {
+    right: max(10px, env(safe-area-inset-right));
+    bottom: calc(max(10px, env(safe-area-inset-bottom)) + var(--companion-footer-lift));
+    width: 196px;
+  }
+
+  .site-companions__stage {
+    width: 196px;
+    height: 112px;
+  }
+
+  .site-companions__character {
+    width: 106px;
+    height: 106px;
+  }
+
+  .site-companions__character--benben {
+    width: 78px;
+    height: 78px;
+  }
+
+  .site-companions__traveler--benben {
+    margin-left: -18px;
+  }
+
+  .site-companions__controls button {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-companions .site-companions__sprite {
+    animation: none;
+    transform: none;
+  }
+}
+
+@media print {
+  .site-companions {
+    display: none;
+  }
+}

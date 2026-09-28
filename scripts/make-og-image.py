@@ -52,7 +52,7 @@ def main():
     tracked(d, (x + 34, 74), "Z>", mark, INK, 1)
 
     tracked(d, (MARGIN, 232), "JOHNS HOPKINS UNIVERSITY", font(23, 500), MUTED, 3.4)
-    d.text((MARGIN, 276), "Xupeng (Zack) Zhang", font=font(88, 700), fill=INK)
+    d.text((MARGIN, 276), "Xupeng Zhang", font=font(88, 700), fill=INK)
     d.text((MARGIN, 396), "Machine learning for medical imaging", font=font(38, 400), fill=SOFT)
     tracked(d, (MARGIN, 468), "MEDICAL IMAGING  ·  COMPUTER VISION  ·  LLM", font(21, 500), MUTED, 2.6)
 
